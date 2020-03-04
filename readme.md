@@ -1,44 +1,41 @@
-<h1>Projektidee 1 von Simeon und Cédric</h1>
-<h2>Ausgangslage</h2>
-	<p> Unser Ziel ist es eine einfache Blockchain zu programmieren. Wir möchten verstehen, wie die Technologie "Blockchain" funktioniert und wie eine solche "Kette" zustande kommt.</p>
-	
-<h2>Funktion / Idee / Workflow</h2>
-	<p>Wir bauen ein Programm, welches eine Blockchain initiieren und erweitern kann. Im Interface kann der User eine mögliche Transaktion anstossen (Bsp. Geld von A nach B senden). Diese kann erst ausgeführt werden, sobald der User selber einen Block "gemint" hat. Diesen kann er ebenfalls über unser Interface direkt "minen" in dem er die Anzahl Zeichen angibt. Er wird dann die Möglichkeit haben, sich die ganze "Blockchain" anzeigen zu lassen und die Transaktion auszuführen.</p>
+<h1>Projekt: Oktofinance 2.0</h1>
+<h2>Ausgangslage / Problemstellung</h2>
+	<p>Die bestehenden Spar und Budgetfunktionen der Banken im E-Banking, sind nicht sexy und machen keinen Spass. Die meisten Leute kennen diese Funktionen nicht einmal, da das E-Banking kein Ort ist, den man mit positiven Emotionen verbindet. Dementsprechend möchte man sich da nicht allzu lang darin aufhalten.<br>
+	Der Zeitpunkt, wenn man darüber informiert wird, dass man sparen muss, ist nicht akkurat. Das Geld ist meistens schon ausgegeben bis man sich Ende Monat wieder im E-Banking einloggt und den dortigen Sparplaner aufruft, vorausgesetzt man kennt ihn überhaupt. Z.B. beim Onlineshopping wird man nicht daran erinnert, dass man sich diese Kleider nicht leisten kann.<br> 
+	Vielen Menschen fehlt die Motivation Rechnungen zu bezahlen. Dies ist auf verschiedene Gründe zurückzuführen. Einerseits schreckt die damit verbundene Umständlichkeit (Transaktionen kategorisieren, Sparziele festlegen, Analysen etc.) ein Teil der Benutzer ab andererseits sehen sich viele Menschen, aufgrund der fehlenden Weitsicht, finanziell an die Wand gedrängt, weshalb ein Zahlen von Rechnungen in ihrem Fall mit unangenehmen Emotionen verbunden ist.<br>
+	Bei Papierrechnungen ist das Sortieren, Erinnern und Archivieren häufig ein Pain-Point. Z.B. Rechnungen die man bei den Steuern abziehen kann werden vergessen, gehen verloren oder man hat sie nicht zum richtigen Zeitpunkt zur Hand.<br>
+	Im Zeitalter der Digitalisierung werden dem Kunden ein Grossteil der Rechnungen per Mail zugestellt. Dies bietet zwar viele Vorteile und scheint den Ansprüchen der heutigen User besser gerecht zu werden als eine Rechnung in Papierform. Aufgrund viele Mails und Spams geht die Übersicht im Posteingang verloren und man vergisst die Rechnungen zu begleichen.<br>
+	<!--Briefe sammeln sich im Briefkasten, die Post die man heutzutage erhält, ist in den meisten Fällen negativ behaftet, da man nur noch Rechnungen und Mahnungen aber keine Liebesbriefe oder dergleichen mehr erhält. Darum ist es für viele eine Qual, den Briefkasten zu leeren. Somit bleiben viele wichtige Rechnungen liegen oder gehen unter.-->
+	</p>
+<h2>Lösungs Idee </h2>
+	<p>In der heutigen Konsumgesellschaft ist Geld ist für jedermann von zentraler Bedeutung. Gemäss der obenstehenden Problembeschreibung sehen wir ein Grundsatzproblem, dass sparen nicht im Alltag integriert ist, obwohl dies fatale folgen haben kann, wenn man sein Vermögen nicht optimal verwaltet. Wir wollen, dass die Nutzer unserer Applikation eine Motivation haben sich mit dem Sparen auseinander zusetzen, damit sie keine Einschränkungen haben.<br>
+	Ziel des Projektes ist eine Budgetplanungs-Applikation zu bauen mit welcher man sein Budget für verschiedene anstehende Ausgaben (z.B. Lebensmittel, Ferien, Kleider, Arztrechnungen etc.) des täglichen Lebens planen kann. Wir haben uns für eine Mobile-App entschieden, damit wir die oben beschriebene niederschwellige Art und Weise des sparens hinkriegen und sparen im Leben in Zukunft integriert sein wird.
+	</p>
+<h2>Funktion</h2>
+	In der App können Sparziele definiert werden (lang- und kurzfristige Ziele), Zahlungen geplant werden (Scan einer Rechnung, Manuelle Eingabe, Upload einer PDF-Rechnung aus dem Email), und sie gibt einem an wie viel man in den einzelnen Budgetposten im aktuellen Monat oder Jahr noch ausgeben darf. Weiter wird das Sparpotenzial grafisch dargestellt und mögliche Budget-Swaps (Verschiedene Konten und Ausgabeposten) werden mittels Pop-Up dem Nutzer angegeben. Somit sollte eine Übersicht über das aktuelle Vermögen gewährleistet sein. Bei einer Online-Bestellung wird ein Pop-Up erscheinen, welches dem User angibt, wie sich die Bestellsumme auf die eigenen Kontostände und Sparziele auswirkt. Ist die Steuerrechnung fällig (wird vom Nutzer anfangs Jahr angegeben), werden die Rechnungen dem User mitgeteilt, welche steuerrelevant sind.
+<h2>Workflow</h2>
+<img src="Projekt.jpg" alt="Hier könnte das Ablaufdiagramm stehen" title="Ablaufdiagramm" />
+
+<h3>Prozess</h3>
 <h3>Dateneingabe</h3>
-	<p>In unserem Interface sollte der User nach folgendne verschiedenen Eingaben abgefragt werden:
+	<p>Im Interface wir der user folgende Daten eingeben können:
 		<ul>
-			<li>Neue Transaktion hinzufügen (Betrag)</li>
-			<li>Einen Block minen (Anzahl Zeichen)</li>
+			<li>Aktuelles Vermögen/Gesamtbudget</li>
+			<li>Angabe Budget pro Ausgabenposte - In welchen Bereichen ist wie viel Budget vorhanden?</li>
+			<li>Eingabe der offenen Ausgaben und Rechnungen per Scan, manueller Angabe oder Upload als PDF-File</li>
+			<li>Definition von kurz- und langfristigen Sparzielen</li>
+			<li>Eingabe, wann die Steuerrechnung ausgefüllt wird</li>
+			<li>Angabe des Sparzwangs (Stark, Mittel und leicht)</li>
 		</ul>
 	</p>
 <h3>Datenverarbeitung/Speicherung</h3>
-	<p>Aufbau der Datenbank mit allen Transaktionen. Die Transaktionen sollen in diese DB eingespielt und abgespeichert werden.</p>
+	<p>Muss noch geklärt werden</p>
 <h3>Datenausgabe</h3>
-		<ul>
-			<li>Alle bestehenden Blöcke ausweisen = Blockchain </li>
-			<li>Anzeige aller Teilnehmer welche in der Blockchain drin sind</li>
-		</ul>
+	<ul>
+		<li>Überischt aller Ausgaben als Kuchendiagramm</li>
+		<li>Übersicht des aktuellen Budgets als Balkendiagramm</li>
+		<li>Anzeige Ausgabenverlauf im Liniendiagramm</li>
+		<li>Anzeige Sparpotential als Balkendiagramm - wird im Budget grün dargestellt</li>
+		<li></li>
+	</ul>
 
-
-<h1>Projektidee 2 von Simeon und Cédric</h1>
-<h2>Ausgangslage</h2>
-	<p>Unser Ziel ist es eine Budgetplanungsapp für den Haushalt zu erstellen. Der Planer errechnet dein aktuelles Budget und gibt dir zurück, welche Investitionen noch getätigt werden können. Desweiteren wird im Interface angezeigt in welchen Bereichen man zu viel ausgegeben hat. Dadurch soll er einem einen Anreiz zum sparen bieten. </p>
-	
-<h2>Funktion / Idee / Workflow</h2>
-	<p>Wir bauen eine Budgetplanungs-App mit welcher man sein Budget für verschiedene anstehende Ausgaben des täglichen Lebens planen kann und die einem angibt, wie viel man beim den einzelnen Budgetposten in diesem Monat noch ausgeben darf. Weiter wird einem danach eine aktuelle Anzeige über das Sparpotenzial und mögliche Budget-Swaps ausgegeben, mit denen man immer eine aktuelle Übersicht über die eigenen Finanzen hat.<br>
-	</p>
-<h3>Dateneingabe</h3>
-	<p>Im Interface sollte der user nach verschiedenen Handlungen abgefragt werden:
-		<ul>
-			<li>Gesamtbudget</li>
-			<li>In welchen Bereichen ist wie viel Budget vorhanden?</li>
-			<li>Abfrage nach aktuellen Ausgaben</li>
-			<li>Anzeige Ausgabenverlauf</li>
-			<li>Anzeige Sparpotential</li>
-			<li>Einzelne Ausgaben die man täglich getätigt hat über Excel</li>
-		</ul>
-	</p>
-<h3>Datenverarbeitung/Speicherung</h3>
-	<p>Excelsheet</p>
-<h3>Datenausgabe</h3>
-	<p>Der User erhält eine grafische Überischt seiner Ausgaben (als Verlauf, Balken- oder Kuchendiagramm) und seines aktuellen Budgets. Er sieht ebenfalls auf einen Blick, was er alles gespart hat. </p>
