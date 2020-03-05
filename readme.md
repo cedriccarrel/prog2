@@ -21,7 +21,7 @@
 	<p>Im Interface wir der user folgende Daten eingeben können:
 		<ul>
 			<li>Aktuelles Vermögen/Gesamtbudget</li>
-			<li>Angabe Budget pro Ausgabenposte - In welchen Bereichen ist wie viel Budget vorhanden?</li>
+			<li>Angabe Budget pro Ausgabenposten - In welchen Bereichen ist wie viel Budget vorhanden?</li>
 			<li>Eingabe der offenen Ausgaben und Rechnungen per Scan, manueller Angabe oder Upload als PDF-File</li>
 			<li>Definition von kurz- und langfristigen Sparzielen</li>
 			<li>Eingabe, wann die Steuerrechnung ausgefüllt wird</li>
@@ -36,7 +36,7 @@
 		<li>Übersicht des aktuellen Budgets als Balkendiagramm</li>
 		<li>Anzeige Ausgabenverlauf im Liniendiagramm</li>
 		<li>Anzeige Sparpotential als Balkendiagramm - wird im Budget grün dargestellt</li>
-		<li></li>
+		<li>SMS Alert, sobald Budget überschritten wurde</li>
 	</ul>
 
 
