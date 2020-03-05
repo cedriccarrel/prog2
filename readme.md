@@ -21,10 +21,10 @@ In der App können Sparziele definiert werden (lang- und kurzfristige Ziele), Za
 ![Ablaufdiagramm](./Prog2_Ablaufdiagramm_V1.jpg)
 
 ### Prozess
-TODO
+- [ ] TODO
 
 ### Dateneingabe
-Im Interface wir der user folgende Daten eingeben können:
+Im Interface wir der User folgende Daten eingeben können:
 - Aktuelles Vermögen/Gesamtbudget
 - Angabe Budget pro Ausgabenposten - In welchen Bereichen ist wie viel Budget vorhanden?
 - Eingabe der offenen Ausgaben und Rechnungen per Scan, manueller Angabe oder Upload als PDF-File
@@ -33,7 +33,7 @@ Im Interface wir der user folgende Daten eingeben können:
 - Angabe des Sparzwangs (Stark, Mittel und leicht)
 
 ### Datenverarbeitung / Speicherung
-TODO
+- [ ] TODO
 
 ### Datenausgabe
 - Überischt aller Ausgaben als Kuchendiagramm
