@@ -14,7 +14,7 @@
 <h2>Funktion</h2>
 	In der App können Sparziele definiert werden (lang- und kurzfristige Ziele), Zahlungen geplant werden (Scan einer Rechnung, Manuelle Eingabe, Upload einer PDF-Rechnung aus dem Email), und sie gibt einem an wie viel man in den einzelnen Budgetposten im aktuellen Monat oder Jahr noch ausgeben darf. Weiter wird das Sparpotenzial grafisch dargestellt und mögliche Budget-Swaps (Verschiedene Konten und Ausgabeposten) werden mittels Pop-Up dem Nutzer angegeben. Somit sollte eine Übersicht über das aktuelle Vermögen gewährleistet sein. Bei einer Online-Bestellung wird ein Pop-Up erscheinen, welches dem User angibt, wie sich die Bestellsumme auf die eigenen Kontostände und Sparziele auswirkt. Ist die Steuerrechnung fällig (wird vom Nutzer anfangs Jahr angegeben), werden die Rechnungen dem User mitgeteilt, welche steuerrelevant sind.
 <h2>Workflow</h2>
-<img src="Projekt.jpg" alt="Hier könnte das Ablaufdiagramm stehen" title="Ablaufdiagramm" />
+![Ablaufdiagramm](Prog2_Ablaufdiagramm_V1.jpg)
 
 <h3>Prozess</h3>
 <h3>Dateneingabe</h3>
