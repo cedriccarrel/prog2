@@ -41,3 +41,19 @@ Im Interface wir der User folgende Daten eingeben können:
 - Anzeige Ausgabenverlauf im Liniendiagramm
 - Anzeige Sparpotential als Balkendiagramm - wird im Budget grün dargestellt
 - SMS Alert, sobald Budget überschritten wurde
+
+## Pendenzen
+### Zuteilung HTML-Struktur
+- [] Login --> Simeon
+- [] Sign-Up --> Cédi
+- [] Home (Dashboard) --> Simeon
+- [] Budget --> Simeon
+- [] Transaktionen --> Cédi
+- [] Auswertungen --> Cédi
+- [] Navigation --> Simeon
+- []
+
+### Fragen:
+- [] Datenbank
+- [] Download Bootstrap?
+
