@@ -1,0 +1,12 @@
+.content{
+	background-color: #BFBFBF;
+	font-family: 'Montserrat', sans-serif;
+	z-index: 0;
+}
+
+h1 {
+	font-size: 24px;
+	font-weight: 500;
+	color: grey;
+	margin-left: 10%;
+}
