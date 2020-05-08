@@ -52,30 +52,14 @@ def login2():
 def index(name):
 	return render_template("index.html", name=name)
 
-@app.route('/bacon')
-def bacon():
-	import mysql.connector
-
-	mydb = mysql.connector.connect(
-		host="localhost",
-		user="yourusername",
-		passwd="yourpassword"
-	)
-
-	mycursor = mydb.cursor()
-	mycursor.execute("CREATE DATABASE mydatabase")
-
 @app.route("/")
 @app.route("/<user>")
 def angabe(user=None):
 	return render_template("user.html", user=user)
 
-
-@app.route("/shopping")
-def shopping():
-	food =["Chesse", "Tuna", "Beef", "Bacon"]
-	return render_template("shopping.html", food=food)
-
+@app.route("/newtransactions")
+def newtransactions():
+	return render_template("newtransactions.html")
 
 @app.route('/post/<int:post_id>')
 def show_post(post_id):
