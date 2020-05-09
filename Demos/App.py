@@ -53,21 +53,17 @@ def index(name):
 	return render_template("index.html", name=name)
 
 @app.route("/")
-@app.route("/<user>")
-def angabe(user=None):
-	return render_template("user.html", user=user)
+@app.route("/dashboard")
+def dashboard():
+	return render_template("dashboard.html")
 
 @app.route("/newtransactions")
 def newtransactions():
 	return render_template("newtransactions.html")
 
-@app.route('/post/<int:post_id>')
-def show_post(post_id):
-	return "Post ID is %s" % post_id
-
-@app.route("/profile/<name>")
-def profile(name):
-	return render_template("profile.html", name=name)
-
+@app.route("/tasks")
+def tasks():
+	return render_template("tasks.html")
+	
 if __name__ == "__main__":
 	app.run(debug=True, port=5000)
