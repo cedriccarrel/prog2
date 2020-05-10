@@ -44,9 +44,9 @@ def budget():
 	number = 6
 	return render_template("budget.html", dinger=dinger, number=number)
 
-@app.route('/login2')
-def login2():
-	return render_template("login2.html")
+@app.route('/login3')
+def login3():
+	return render_template("login3.html")
 
 @app.route('/index/<name>')
 def index(name):
