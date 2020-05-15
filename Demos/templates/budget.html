@@ -2,20 +2,17 @@
 <html lang="ch">
 
 <head>
-{% include "navigation.html" %}
+	{% include "navigation.html" %}
+	<title>Dashboard</title>
+	<link rel="shortcut icon" href="{{ url_for('static', filename='brand.png')}}" alt="Oktofinance"/>
+
 </head>
 
 <body>
-    <ul>
-        {% for ding in dinger %}
-            <li>{{ ding }}</li>
-        {% endfor %}
-    </ul>
-
-    {% if number > 5 %}
-        <p>{{ number }} ist grösser als 5</p>
-    {% else %}
-	   <p>{{ number }} ist nicht grösser als 5</p>
-    {% endif %}
-
+<p>Budget</p>
 </body>
+
+<footer>
+    {% include "footer.html" %}
+</footer>
+</html>

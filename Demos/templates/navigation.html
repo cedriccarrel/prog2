@@ -3,28 +3,25 @@
 
 <head>
 <!-- Header --> 
+  <meta name="keywords" content="Oktofinance, Ok to finance, oktofinance">
+  <meta name="author" content = "Cédric Carrel und Simeon Solenthaler">
+  <meta name="date" content="29.03.2020">
+  <meta name="description" content="Webapplikation von Cédric Carrel und Simeon Solenthaler">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="refresh" content="30">
+  <meta charset="utf-8">
 
-<meta name="keywords" content="Oktofinance, Ok to finance, oktofinance">
-<meta name="author" content = "Cédric Carrel und Simeon Solenthaler">
-<meta name="date" content="29.03.2020">
-<meta name="description" content="Webapplikation von Cédric Carrel und Simeon Solenthaler">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="refresh" content="30">
-<meta charset="utf-8">
-
-<link rel="stylesheet" href="static/bootstrap.css"> <!-- Bootstrap Navigation -->
-<link rel="stylesheet" href="static/js/bootstrap.bundle.js"> <!-- Bootstrap Navigation -->
-<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> <!-- Schriften -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> <!-- Icons -->
-
-<title>Oktofinance - Dashboard</title>
-<link rel="shortcut icon" href="pictures/brand.jpg" alt="Oktofinance"/>
+  <link rel="stylesheet" href="static/bootstrap.css"> <!-- Bootstrap  -->
+  <link rel="stylesheet" href="static/js/bootstrap.bundle.js"> <!-- Bootstrap -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> <!-- Schriften -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> <!-- Icons -->
+  <link rel="stylesheet" href="static/css0_navigation.css"> <!-- Css für navigation social media bilder -->
+  <link rel="shortcut icon" href="{{ url_for('static', filename='brand.png')}}" alt="Oktofinance"/>
 </head>
 
 <body>
-
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary scrolling-navbar">
-    <a class="navbar-brand" href="dashboard.html"><strong>Oktofinance</strong></a>
+    <a class="navbar-brand" href="/"><strong>Oktofinance</strong></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -32,16 +29,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="profile.html">Profile<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/signup">Settings<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="budget.html">Budget</a>
+          <a class="nav-link" href="/budget">Budget</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="newtransactions.html">New transactions</a>
+          <a class="nav-link" href="/newtransactions">New transactions</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="tasks.html">Tasks</a>
+          <a class="nav-link" href="/tasks">Tasks</a>
         </li>
       </ul>
       <ul class="navbar-nav nav-flex-icons">
@@ -59,3 +56,4 @@
   </nav>
 
 </body>
+</html>
