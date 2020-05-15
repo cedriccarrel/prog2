@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request
 import preise
 import daten
+import datenbank
 
 app = Flask(__name__)
 
@@ -11,6 +12,9 @@ def speichern(aktivitaet):
 
     return "Gespeichert: " + aktivitaet + " um " + str(zeitpunkt)
 
+@app.route("/liste2")
+def log():
+	
 
 @app.route("/liste")
 def auflisten():
@@ -64,6 +68,7 @@ def newtransactions():
 @app.route("/tasks")
 def tasks():
 	return render_template("tasks.html")
+
 	
 if __name__ == "__main__":
 	app.run(debug=True, port=5000)
