@@ -67,3 +67,12 @@
 		.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
 			background-color: #c0392b !important;
 		}
+		.error {
+			color: white !important;
+			background: #c0392b !important;
+			width: 100%;
+		}
+		.error:focus {
+			box-shadow: none !important;
+			outline: 0px !important;
+		}
