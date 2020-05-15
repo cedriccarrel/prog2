@@ -27,7 +27,7 @@ def auflisten():
 
     return aktivitaeten_liste
 
-
+"""
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 	if request.method == "POST":
@@ -35,7 +35,7 @@ def login():
 		zweite_zahl = request.form['zahl2']
 		ergebnis = float(erste_zahl) + float(zweite_zahl)
 		return str(ergebnis)
-	return render_template("login.html")
+	return render_template("login.html")"""
 
 @app.route("/<preis>")
 def rabatt(preis):
@@ -48,9 +48,15 @@ def budget():
 	number = 6
 	return render_template("budget.html", dinger=dinger, number=number)
 
-@app.route('/login3')
-def login3():
-	return render_template("login3.html")
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    error = None
+    if request.method == 'POST':
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+            error = 'Invalid Credentials. Please try again.'
+        else:
+            return redirect(url_for('dashboard'))
+    return render_template('login.html', error=error)
 
 @app.route('/index/<name>')
 def index(name):
