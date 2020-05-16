@@ -15,6 +15,10 @@ def login():
             return redirect(url_for('dashboard'))
     return render_template('login.html', error=error)
 
+@app.route("/sign_up")
+def sign_up():
+	return render_template("sign_up.html")
+
 @app.route("/")
 @app.route("/dashboard")
 def dashboard():
