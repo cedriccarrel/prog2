@@ -3,13 +3,22 @@
 
 <head>
 	{% include "navigation.html" %}
-	<title>Dashboard</title>
+	<title>Budget</title>
 	<link rel="shortcut icon" href="{{ url_for('static', filename='brand.png')}}" alt="Oktofinance"/>
 
 </head>
 
 <body>
-<p>Budget</p>
+	<p>Budget</p>
+	<table border = 1>
+		{% for key, value in result.items() %}
+		<tr>
+            <th> {{ key }} </th>
+            <td> {{ value }} </td>
+        </tr>
+        {% endfor %}
+    </table>
+
 </body>
 
 <footer>

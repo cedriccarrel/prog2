@@ -1,72 +1,70 @@
-import sqlite3 
 
-connection = sqlite3.connect("daten2.db")
-cursor = connection.cursor()
+newdata = pd.read_csv("Einnahmen3.csv", sep=";")
+print(newdata)
 
-cursor.execute("""CREATE TABLE einnahmen (
+print(newdata.loc[1, "col1"]) #übernahme
+
+print(newdata.iloc[1, 1]) #position --> besser für iterrierung
+
+newdata.iloc[1, 1] = 7
+
+print(newdata)
+
+newdata.to_csv("Einnahmen3.csv", sep=";")
+
+
+ einnahmen (
 		sparziel FLOAT, sparzeitraum INTEGER, hashtagsparen TEXT,
 		einnahmefirma FLOAT, einnahmebetrag FLOAT, einnahmedatum FLOAT,
 		einnahmedauerauftrag TEXT, einnahmehashtag TEXT, einnahmebeschreibung TEXT
-	)""")
+	)
 	
-
-cursor.execute("""CREATE TABLE ausgaben (
+ausgaben (
 		ausgabenfirma FLOAT, ausgabenbetrag FLOAT, ausgabendatum FLOAT,
 		ausgabendauerauftrag TEXT, ausgabenhashtag TEXT, ausgabenbeschreibung TEXT
-	)""")
+	)
 
-cursor.execute("""CREATE TABLE personalien (
+personalien (
 		name TEXT, vorname TEXT, situation TEXT, email TEXT, passwort TEXT, username TEXT, 
 		telefonnummer INTEGER, passwortvergessen TEXT
-	)""")
+	)
 
 
-
-try:
-	cursor = connection.cursor()
-	cursor.execute("""INSERT INTO einnahmen VALUES (
-		500.00, 1, bmw, raiffeisen, 1000.00, 25.05, ja, lohn, saläreingang
-	)""")
-	connection.commit()
-
-	cursor = connection.cursor()
-	cursor.execute("""INSERT INTO ausgaben VALUES (
-		lagerhaus, 40.00, 05.05, nein, verpflegung, mittag essen
-	)""")
-	connection.commit()
-
-	cursor = connection.cursor()
-	cursor.execute("""INSERT INTO personalien VALUES (
-		pinto, jose, student, jpintomail, test123, jose_pinto, 0792697395, nein
-	)""")
-	connection.commit()
-
-except:
-	print("Ein Problem trat auf --> Rollback bis zum letzten commit")
-	connection.rollback()
+from datetime import datetime
+import json
 
 
+def speichern(datei, key, value):
+    try:
+        with open(datei) as open_file:
+            datei_inhalt = json.load(open_file)
+    except FileNotFoundError:
+        datei_inhalt = {}
 
-def view(sparziel=None):
-	connection = db.connect("daten2.db")
-	cursor = connection.cursor()
-	if sparziel:
-		sql = '''
-		select * from einnahmen where sparziel = '{}'
-		'''.format(sparziel)
-		sql2 = '''
-		select sum(einnahmebetrag) from einnahmen where sparziel = '{}'
-		'''.format(sparziel)
-	else:
-		sql = '''
-		select * from einnahmen
-		'''.format(sparziel)
-		sql2 = '''
-		select sum(einnahmebetrag) from einnahmen
-		'''.format(sparziel)
-	cursor.execute(sql)
-	cursor.execute(sql2)
-	results = cursor.fetchall()
-	total_amount = cursor.fetchone()[0]
+    datei_inhalt[str(key)] = value
 
-	return total_amount, results
+    print(datei_inhalt)
+
+    with open(datei, "w") as open_file:
+        json.dump(datei_inhalt, open_file)
+
+
+def aktivitaet_speichern(aktivitaet):
+    datei_name = "aktivitaeten.json"
+    zeitpunkt = datetime.now()
+    speichern(datei_name, zeitpunkt, aktivitaet)
+    return zeitpunkt, aktivitaet
+
+
+def aktivitaeten_laden():
+    datei_name = "aktivitaeten.json"
+
+    try:
+        with open(datei_name) as open_file:
+            datei_inhalt = json.load(open_file)
+    except FileNotFoundError:
+        datei_inhalt = {}
+
+    return datei_inhalt
+
+
