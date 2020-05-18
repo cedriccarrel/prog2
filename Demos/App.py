@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
 import pandas as pd
+import numpy as np
 
 
 app = Flask(__name__)
@@ -40,23 +41,23 @@ def newtransactions():
 
 def result():
 	try:
+		df_old = pd.read_csv("Einnahmen.csv", sep=";")
 		if request.method == 'POST':
 			result = request.form
-			newdata = pd.read_csv("Einnahmen.csv", sep=";")
-			newdata.iloc[[0, 1]] = result['Name']
-			newdata.iloc[[1, 1]] = result['Vorname']
-			newdata.to_csv("Einnahmen.csv", sep=";")
+			df_new = result
+			df_new = pd.DataFrame({'name':[result], 'vorname':[result]})
+			df_concat = pd.concat([df_old, df_new], axis=0)
+			df_concat.to_csv("Einnahmen.csv", sep=";")
 
 	except FileNotFoundError:
-		vorlage = {'name': [4, 6], 'vorname': [5, 7]}
-		liste = pd.DataFrame(data=vorlage)
-		liste.to_csv("Einnahmen.csv", sep=";")
+		df_old = pd.DataFrame({'name': [4, 6], 'vorname': [5, 7]})
+		df_old.to_csv("Einnahmen.csv", sep=";")
 		if request.method == 'POST':
 			result = request.form
-			newdata = pd.read_csv("Einnahmen.csv", sep=";")
-			newdata.iloc[1, 1] = result['Name']
-			newdata.iloc[1, 2] = result['Vorname']
-			newdata.to_csv("Einnahmen.csv", sep=";")
+			df_new = result
+			df_new = pd.DataFrame({'name':[result], 'vorname':[result]})
+			df_concat = pd.concat([df_old, df_new], axis=0, ignore_index=True)
+			df_concat.to_csv("Einnahmen.csv", sep=";")
 
 	return render_template("budget.html", result=result)
 

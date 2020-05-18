@@ -6,11 +6,27 @@ print(newdata.loc[1, "col1"]) #übernahme
 
 print(newdata.iloc[1, 1]) #position --> besser für iterrierung
 
-newdata.iloc[1, 1] = 7
+def result():
+    try:
+        if request.method == 'POST':
+            result = request.form
+            newdata = pd.read_csv("Einnahmen.csv", sep=";")
+            newdata.iloc[[0, 1]] = result['Name']
+            newdata.iloc[[1, 1]] = result['Vorname']
+            newdata.to_csv("Einnahmen.csv", sep=";")
 
-print(newdata)
+    except FileNotFoundError:
+        vorlage = {'name': [4, 6], 'vorname': [5, 7]}
+        liste = pd.DataFrame(data=vorlage)
+        liste.to_csv("Einnahmen.csv", sep=";")
+        if request.method == 'POST':
+            result = request.form
+            newdata = pd.read_csv("Einnahmen.csv", sep=";")
+            newdata.iloc[1, 1] = result['Name']
+            newdata.iloc[1, 2] = result['Vorname']
+            newdata.to_csv("Einnahmen.csv", sep=";")
 
-newdata.to_csv("Einnahmen3.csv", sep=";")
+    return render_template("budget.html", result=result)
 
 
  einnahmen (
@@ -29,42 +45,5 @@ personalien (
 		telefonnummer INTEGER, passwortvergessen TEXT
 	)
 
-
-from datetime import datetime
-import json
-
-
-def speichern(datei, key, value):
-    try:
-        with open(datei) as open_file:
-            datei_inhalt = json.load(open_file)
-    except FileNotFoundError:
-        datei_inhalt = {}
-
-    datei_inhalt[str(key)] = value
-
-    print(datei_inhalt)
-
-    with open(datei, "w") as open_file:
-        json.dump(datei_inhalt, open_file)
-
-
-def aktivitaet_speichern(aktivitaet):
-    datei_name = "aktivitaeten.json"
-    zeitpunkt = datetime.now()
-    speichern(datei_name, zeitpunkt, aktivitaet)
-    return zeitpunkt, aktivitaet
-
-
-def aktivitaeten_laden():
-    datei_name = "aktivitaeten.json"
-
-    try:
-        with open(datei_name) as open_file:
-            datei_inhalt = json.load(open_file)
-    except FileNotFoundError:
-        datei_inhalt = {}
-
-    return datei_inhalt
 
 
