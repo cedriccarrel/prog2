@@ -10,15 +10,18 @@
 
 <body>
 	<p>Budget</p>
-	<table border = 1>
-		{% for key, value in result.items() %}
-		<tr>
-            <th> {{ key }} </th>
-            <td> {{ value }} </td>
-        </tr>
-        {% endfor %}
-    </table>
-
+	<table class="table table-striped">
+		<thead>
+                      <!-- Your Splits -->
+		</thead>
+		<tbody>
+			{% for element in data1: %}
+			<tr>
+				<td>{{element}}</td>
+			</tr>
+				{% endfor %}
+		</tbody>
+	</table>
 </body>
 
 <footer>

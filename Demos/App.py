@@ -39,27 +39,31 @@ def newtransactions():
 
 @app.route("/budget", methods =['POST', 'GET'])
 
-def result():
-	try:
-		df_old = pd.read_csv("Einnahmen.csv", sep=";")
-		if request.method == 'POST':
-			result = request.form
-			df_new = result
-			df_new = pd.DataFrame({'name':[result], 'vorname':[result]})
-			df_concat = pd.concat([df_old, df_new], axis=0)
-			df_concat.to_csv("Einnahmen.csv", sep=";")
+def load_newstransaction_form():
+	result = None
+	data = None
+	if request.method == 'POST':
+		result = request.form
 
-	except FileNotFoundError:
-		df_old = pd.DataFrame({'name': [4, 6], 'vorname': [5, 7]})
-		df_old.to_csv("Einnahmen.csv", sep=";")
-		if request.method == 'POST':
-			result = request.form
-			df_new = result
-			df_new = pd.DataFrame({'name':[result], 'vorname':[result]})
-			df_concat = pd.concat([df_old, df_new], axis=0, ignore_index=True)
-			df_concat.to_csv("Einnahmen.csv", sep=";")
+		newtransaction_dictionary= {
+		result['newtransaction']: {
+			"currency": result['Currency'],
+	        "member1": result['member1'],
+	        "member2": result['member2'],
+	        "member3": result['member3'],
+	        "member4": result['member4'],
+	        "member5": result['member5'],
+	        "member6": result['member6']
+	        }
+	       }
+	data_new = pd.DataFrame(newtransaction_dictionary)
+	#data_new.to_csv("ausgaben.csv", index=True)
+	data_old = pd.read_csv(r"ausgaben.csv", index_col=0)
+	data = pd.concat([data_old, data_new], axis=1)
+	data.to_csv("ausgaben.csv", index=True)
+	data_new = pd.read_csv(r"ausgaben.csv", index_col=0)
 
-	return render_template("budget.html", result=result)
+	return render_template("budget.html", data1=data_new)
 
 
 if __name__ == "__main__":
