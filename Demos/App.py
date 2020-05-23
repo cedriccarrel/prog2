@@ -39,6 +39,7 @@ def newtransactions():
 
 @app.route("/budget", methods =['POST', 'GET'])
 
+#definition für Übernahme aus newtransactions ins dict und anschl. ins csv übertrgen
 def load_newstransaction_form():
 	result = None
 	data = None
@@ -57,11 +58,21 @@ def load_newstransaction_form():
 	        }
 	       }
 	data_new = pd.DataFrame(newtransaction_dictionary)
+	#bei initialisierung muss diese Zeile aktiviert sein, anschliessend auskommentieren
 	#data_new.to_csv("ausgaben.csv", index=True)
 	data_old = pd.read_csv(r"ausgaben.csv", index_col=0)
 	data = pd.concat([data_old, data_new], axis=1)
 	data.to_csv("ausgaben.csv", index=True)
 	data_new = pd.read_csv(r"ausgaben.csv", index_col=0)
+
+
+	#pandas manipulation am df --> beträge auslesund rechnen
+	betrag = data
+	print(betrag)
+
+	ausgabe_betrag = betrag.loc[betrag['Test30'] == 'schule']
+	print(ausgabe_betrag)
+
 
 	return render_template("budget.html", data1=data_new)
 
