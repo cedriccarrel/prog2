@@ -47,13 +47,13 @@ def load_newstransaction_form():
 
 		newtransaction_dictionary= {
 		result['newtransaction']: {
-			"currency": result['Currency'],
-	        "member1": result['member1'],
-	        "member2": result['member2'],
-	        "member3": result['member3'],
-	        "member4": result['member4'],
-	        "member5": result['member5'],
-	        "member6": result['member6']
+			"currency": result['currency'],
+	        "ausgabebetrag": result['ausgabebetrag'],
+	        "ausgabedauerauftrag": result['ausgabedauerauftrag'],
+	        "ausgabedatum": result['ausgabedatum'],
+	        "ausgabefirma": result['ausgabefirma'],
+	        "ausgabebeschreibung": result['ausgabebeschreibung'],
+	        "ausgabehashtag": result['ausgabehashtag']
 	        }
 	       }
 	data_new = pd.DataFrame(newtransaction_dictionary)

@@ -1,8 +1,8 @@
-,Test1,tsest2
-currency,chf,eur
-member1,test,test
-member2,,
-member3,,3232
-member4,,
-member5,,
-member6,,
+,Unnamed: 1,Geldtest32,Test3,Geldtest
+ausgabebeschreibung,Test1,bal,safasdfasdf,
+ausgabebetrag,10.00,10.0,20,10.0
+ausgabedatum,10.05.2020,10.05.2020,10.05.2020,10.05.2020
+ausgabedauerauftrag,dauerauftrag,dauerauftrag,einfacherauftrag,dauerauftrag
+ausgabefirma,Raiffise,Migros,Migros,Migros
+ausgabehashtag,freizeit,kommunikation,persönlich,essen
+currency,chf,usd,cad,chf

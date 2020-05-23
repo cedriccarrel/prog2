@@ -10,9 +10,10 @@
 	<h1>New Transactions</h1>
     <div class="container-fluid col-lg-" style="width: 50%; margin-top: 20px;">
     <form  action="/budget" method="post">
-        <p class="h4 mb-4 text-center">Create new Split</p>
-        <input type="text" name="newtransaction" class="form-control mb-4" placeholder="Name your Transaction">
-        <select class="browser-default custom-select mb-4" name="Currency" placeholder="Select currency">
+        <p class="h4 mb-4 text-center">Create new transaction</p>
+        <input type="text" name="newtransaction" class="form-control mb-4" placeholder="Name your transaction">
+        <input type="text" name="ausgabebetrag" class="form-control mb-4" placeholder="Value of your transaction">
+        <select class="browser-default custom-select mb-4" name="currency" placeholder="Select currency">
         <option value="" disabled="" selected="">Choose your currency</option>
         <option value="chf">CHF</option>
         <option value="eur">EUR</option>
@@ -21,13 +22,26 @@
         <option value="sgd">SGD</option>
         <option value="idr">IDR</option>
         </select>
-        Members
-        <input type="text" name="member1"  class="form-control mb-2" placeholder="">
-        <input type="text" name="member2"  class="form-control mb-2" placeholder="">
-        <input type="text" name="member3"  class="form-control mb-2" placeholder="">
-        <input type="text" name="member4"  class="form-control mb-2" placeholder="">
-        <input type="text" name="member5"  class="form-control mb-2" placeholder="">
-        <input type="text" name="member6"  class="form-control mb-2" placeholder="">
+        <select class="browser-default custom-select mb-4" name="ausgabedauerauftrag" placeholder="Order type">
+        <option value="" disabled="" selected="">Choose your order type</option>
+        <option value="dauerauftrag">Standing order</option>
+        <option value="einfacherauftrag">Simple order</option>
+        </select>
+        Details 
+        <input type="text" name="ausgabedatum"  class="form-control mb-2" placeholder="Date">
+        <input type="text" name="ausgabefirma"  class="form-control mb-2" placeholder="Company">
+        <input type="text" name="ausgabebeschreibung"  class="form-control mb-2" placeholder="Description">
+        <select class="browser-default custom-select mb-4" name="ausgabehashtag" placeholder="Hashtag">
+        <option value="" disabled="" selected="">Choose a hashtag</option>
+        <option value="schule">#School</option>
+        <option value="essen">#Food</option>
+        <option value="kleider">#Clothes</option>
+        <option value="haushalt">#Household</option>
+        <option value="sport">#Sport or hobby</option>
+        <option value="freizeit">#Leisure</option>
+        <option value="kommunikation">#Communication and media</option>
+        <option value="persönlich">#Personal</option>
+        </select>
 
         <button type="submit" action="url_for('load_newstransaction_form')" value="Submit" class="btn btn-outline-secondary" style=" margin-top: 5%;background-color: #e3f2fd; border: none; color: black;">Create</button>
     </form>
