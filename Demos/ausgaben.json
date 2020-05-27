@@ -1,0 +1,22 @@
+[
+    {
+        "titel": "Test1",
+        "currency": "chf",
+        "ausgabebetrag": 10.0,
+        "ausgabedauerauftrag": "dauerauftrag",
+        "ausgabedatum": "10.05.2020",
+        "ausgabefirma": "Migros",
+        "ausgabebeschreibung": "Test2",
+        "ausgabehashtag": "essen"
+    },
+    {
+        "titel": "Test30",
+        "currency": "chf",
+        "ausgabebetrag": 30.0,
+        "ausgabedauerauftrag": "dauerauftrag",
+        "ausgabedatum": "10.05.2020",
+        "ausgabefirma": "Migros",
+        "ausgabebeschreibung": "Test2",
+        "ausgabehashtag": "essen"
+    }
+]

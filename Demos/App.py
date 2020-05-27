@@ -1,9 +1,27 @@
 from flask import Flask, render_template, redirect, url_for, request
-import pandas as pd
-import numpy as np
-
+import json
 
 app = Flask(__name__)
+
+def lade_daten_aus_json (pfad, standard_wert = []):
+    #https://www.programiz.com/python-programming/json
+    try:
+        with open(pfad, 'r') as datei:
+            return json.load(datei)
+    except Exception:
+        return standard_wert
+
+def schreibe_daten_in_json(pfad, daten):
+    #https://stackoverflow.com/questions/17043860/how-to-dump-a-dict-to-a-json-file
+    with open(pfad, 'w') as datei:
+        json.dump(daten, datei, indent = 4)
+
+def total_transactions(transactions):
+	sum = 0
+	for transaction in transactions:
+		sum = sum + transaction['ausgabebetrag']
+	return sum
+
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -39,42 +57,33 @@ def newtransactions():
 
 @app.route("/budget", methods =['POST', 'GET'])
 
-#definition für Übernahme aus newtransactions ins dict und anschl. ins csv übertrgen
+#definition für Übernahme aus newtransactions ins dict 
 def load_newstransaction_form():
 	result = None
 	data = None
+	existing_transaction = lade_daten_aus_json("ausgaben.json")
 	if request.method == 'POST':
 		result = request.form
 
 		newtransaction_dictionary= {
-		result['newtransaction']: {
+			"titel": result['newtransaction'], 
 			"currency": result['currency'],
-	        "ausgabebetrag": result['ausgabebetrag'],
+	        "ausgabebetrag": float(result['ausgabebetrag']),
 	        "ausgabedauerauftrag": result['ausgabedauerauftrag'],
 	        "ausgabedatum": result['ausgabedatum'],
 	        "ausgabefirma": result['ausgabefirma'],
 	        "ausgabebeschreibung": result['ausgabebeschreibung'],
 	        "ausgabehashtag": result['ausgabehashtag']
 	        }
-	       }
-	data_new = pd.DataFrame(newtransaction_dictionary)
-	#bei initialisierung muss diese Zeile aktiviert sein, anschliessend auskommentieren
-	#data_new.to_csv("ausgaben.csv", index=True)
-	data_old = pd.read_csv(r"ausgaben.csv", index_col=0)
-	data = pd.concat([data_old, data_new], axis=1)
-	data.to_csv("ausgaben.csv", index=True)
-	data_new = pd.read_csv(r"ausgaben.csv", index_col=0)
+		existing_transaction.append(newtransaction_dictionary)
+		schreibe_daten_in_json("ausgaben.json", existing_transaction)
+	
 
+	print(existing_transaction)
+	sum = total_transactions(existing_transaction)
 
-	#pandas manipulation am df --> beträge auslesund rechnen
-	betrag = data
-	print(betrag)
+	return render_template("budget.html", data1=existing_transaction, sum=sum)
 
-	ausgabe_betrag = betrag.loc[betrag['Test30'] == 'schule']
-	print(ausgabe_betrag)
-
-
-	return render_template("budget.html", data1=data_new)
 
 
 if __name__ == "__main__":
