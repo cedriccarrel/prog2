@@ -24,7 +24,7 @@ def total_transactions(transactions):
 
 
 
-@app.route('/login', methods=['GET', 'POST'])
+@app.route("/login", methods=['GET', 'POST'])
 def login():
     error = None
     if request.method == 'POST':
@@ -32,11 +32,11 @@ def login():
             error = 'Invalid Credentials. Please try again.'
         else:
             return redirect(url_for('dashboard'))
-    return render_template('login.html', error=error)
+    return render_template("login.html", error=error)
 
-@app.route("/sign_up")
+@app.route("/sign_up2")
 def sign_up():
-	return render_template("sign_up.html")
+	return render_template("sign_up2.html")
 
 @app.route("/")
 @app.route("/dashboard")
