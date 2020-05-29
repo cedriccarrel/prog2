@@ -1,0 +1,23 @@
+[
+    {
+        "username": "Test",
+        "e_mail": "Test@testmail",
+        "password": "123",
+        "confirm_password": "123",
+        "budget": "100"
+    },
+    {
+        "username": "test",
+        "e_mail": "Test@testmail",
+        "password": "123",
+        "confirm_password": "123",
+        "budget": "100"
+    },
+    {
+        "username": "admin",
+        "e_mail": "cedi_16@hotmail.com",
+        "password": "123",
+        "confirm_password": "123",
+        "budget": "100"
+    }
+]

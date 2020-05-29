@@ -18,5 +18,15 @@
         "ausgabefirma": "Migros",
         "ausgabebeschreibung": "Test2",
         "ausgabehashtag": "essen"
+    },
+    {
+        "titel": "Geldtest",
+        "currency": "usd",
+        "ausgabebetrag": 6000.0,
+        "ausgabedauerauftrag": "einfacherauftrag",
+        "ausgabedatum": "29.05.2020",
+        "ausgabefirma": "Migros",
+        "ausgabebeschreibung": "hal",
+        "ausgabehashtag": "haushalt"
     }
 ]

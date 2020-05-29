@@ -23,23 +23,44 @@ def total_transactions(transactions):
 	return sum
 
 
-
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     error = None
+    users = lade_daten_aus_json("user_data.json")
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
-            error = 'Invalid Credentials. Please try again.'
-        else:
-            return redirect(url_for('dashboard'))
+    	username = request.form['username']
+    	passwort = request.form['password']
+    	for user in users:
+    		if user['username'].lower() == username.lower() and user['password'].lower() == passwort.lower():
+    			return redirect(url_for('dashboard'))
+    	error = 'Invalid Credentials. Please try again.'
     return render_template("login.html", error=error)
 
-@app.route("/sign_up2")
-def sign_up():
-	return render_template("sign_up2.html")
+@app.route("/sign_up2", methods=['GET', 'POST'])
+#def um daten aus sign up form in dict und json zu laden
+def load_sign_up_form():
+	result = None
+	data = None
+	existing_sign_up = lade_daten_aus_json("user_data.json")
+	if request.method == 'POST':
+		result = request.form
 
-@app.route("/")
-@app.route("/dashboard")
+		user_data_dictionary = {
+			"username": result['username'],
+	        "e_mail": result['e_mail'],
+	        "password": result['password'],
+	        "confirm_password": result['confirm_password'],
+	        "budget": result['budget']
+	        }
+		existing_sign_up.append(user_data_dictionary)
+		schreibe_daten_in_json("user_data.json", existing_sign_up)
+	
+		print(existing_sign_up)
+		return redirect(url_for('dashboard'))
+	return render_template ("sign_up2.html")
+
+@app.route("/", methods=['GET', 'POST'])
+@app.route("/dashboard", methods=['GET', 'POST'])
 def dashboard():
 	return render_template("dashboard.html")
 
