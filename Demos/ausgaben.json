@@ -28,5 +28,15 @@
         "ausgabefirma": "Migros",
         "ausgabebeschreibung": "hal",
         "ausgabehashtag": "haushalt"
+    },
+    {
+        "titel": "Garten papa",
+        "currency": "chf",
+        "ausgabebetrag": 222.0,
+        "ausgabedauerauftrag": "dauerauftrag",
+        "ausgabedatum": "15.05.2020",
+        "ausgabefirma": "Obi",
+        "ausgabebeschreibung": "Gartenlounge wege Gail",
+        "ausgabehashtag": "pers\u00f6nlich"
     }
 ]
