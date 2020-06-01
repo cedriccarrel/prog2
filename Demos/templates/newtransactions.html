@@ -4,7 +4,7 @@
 <head>
 	{% include "navigation.html" %}
 	<link rel="stylesheet" href="{{ url_for('static', filename='css2_newtransactions.css') }}">
-    <meta http-equiv="refresh" content="500">
+    <meta http-equiv="refresh" content="800">
     <title>New Transactions</title>
 </head>
 <body>
@@ -45,7 +45,7 @@
         <option value="persönlich">#Personal</option>
         </select>
 
-        <button type="submit" action="url_for('load_newstransaction_form')" value="Submit" class="btn btn-outline-secondary" style=" margin-top: 5%;background-color: #e3f2fd; border: none; color: black;">Create</button>
+        <button type="submit" action="url_for('load_newstransaction_form')" value="Submit" class="btn btn-outline-secondary" style=" margin-top: 5%;background-color: #e3f2fd; border: none; color: black; padding-bottom: 2em ">Create</button>
     </form>
     </div>
 </html>

@@ -21,10 +21,34 @@
         "budget": "100"
     },
     {
+<<<<<<< HEAD
         "username": "",
         "e_mail": "",
         "password": "",
         "confirm_password": "",
         "budget": ""
+=======
+        "username": "alexandre",
+        "e_mail": "alexandre@test.ch",
+        "password": "alex123",
+        "confirm_password": "alex123",
+        "budget": "200"
+    },
+    {
+        "username": "C\u00e9dric",
+        "e_mail": "cedi_16@hotmail.com",
+        "password": "12345",
+        "confirm_password": "12345",
+        "salary": "500",
+        "budget": "300"
+    },
+    {
+        "username": "asdf",
+        "e_mail": "asfd@adf",
+        "password": "1",
+        "confirm_password": "1",
+        "salary": "200",
+        "budget": "100"
+>>>>>>> cf0018f063545b52b2f9f028ea014597fb63bd5b
     }
 ]
