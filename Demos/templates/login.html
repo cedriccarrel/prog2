@@ -38,12 +38,12 @@
 							<input type="password" name="password" class="form-control input_pass" value="{{
           					request.form.password }}" placeholder="Password">
 						</div>
-						<div class="form-group">
+						<!-- Header  <div class="form-group">
 							<div class="custom-control custom-checkbox">
 								<input type="checkbox" class="custom-control-input" id="customControlInline">
 								<label class="custom-control-label" for="customControlInline">Remember me</label>
 							</div>
-      					</div>
+      					</div>-->
       					<div>
 							{% if error %}
         						<p class="error"><strong>Error:</strong> {{ error }}
@@ -61,7 +61,7 @@
 						Don't have an account? <a href="{{ url_for('load_sign_up_form') }}" class="ml-2">Sign Up</a>
 					</div>
 					<div class="d-flex justify-content-center links">
-						<a href="">Forgot your password?</a>
+						<a href="{{ url_for('forgot_password') }}" class="ml-2">Forgot your password?</a>
 					</div>
 				</div>
 			</div>

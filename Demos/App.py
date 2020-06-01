@@ -63,6 +63,10 @@ def load_sign_up_form():
 		return redirect(url_for('dashboard'))
 	return render_template ("sign_up.html")
 
+@app.route("/forgot_password")
+def forgot_password():
+	return render_template("forgot_password.html")
+
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/dashboard", methods=['GET', 'POST'])
 def dashboard():

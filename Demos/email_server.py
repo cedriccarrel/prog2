@@ -1,4 +1,4 @@
-from flask import Flask
+"""from flask import Flask
 from flask_mail import Message, Mail
 from app.forms import ResetPasswordRequestForm
 
@@ -20,4 +20,4 @@ mail = Mail(app)
 
 def send_email(subject, sender, recipients, text_body, html_body):
     msg = Message(subject, sender=sender, recipients=recipients)
-    mail.send(msg)
+    mail.send(msg)"""
