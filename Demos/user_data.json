@@ -19,5 +19,12 @@
         "password": "123",
         "confirm_password": "123",
         "budget": "100"
+    },
+    {
+        "username": "",
+        "e_mail": "",
+        "password": "",
+        "confirm_password": "",
+        "budget": ""
     }
 ]

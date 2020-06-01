@@ -4,7 +4,6 @@ import json
 app = Flask(__name__)
 
 def lade_daten_aus_json (pfad, standard_wert = []):
-    #https://www.programiz.com/python-programming/json
     try:
         with open(pfad, 'r') as datei:
             return json.load(datei)
@@ -12,7 +11,6 @@ def lade_daten_aus_json (pfad, standard_wert = []):
         return standard_wert
 
 def schreibe_daten_in_json(pfad, daten):
-    #https://stackoverflow.com/questions/17043860/how-to-dump-a-dict-to-a-json-file
     with open(pfad, 'w') as datei:
         json.dump(daten, datei, indent = 4)
 
@@ -22,6 +20,11 @@ def total_transactions(transactions):
 		sum = sum + transaction['ausgabebetrag']
 	return sum
 
+def total_salary(salaries):
+	sum_salary = 0
+	for salary in salaries:
+		sum_salary = sum_salary + salary['salary']
+	return sum_salary
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -36,7 +39,7 @@ def login():
     	error = 'Invalid Credentials. Please try again.'
     return render_template("login.html", error=error)
 
-@app.route("/sign_up2", methods=['GET', 'POST'])
+@app.route("/sign_up", methods=['GET', 'POST'])
 #def um daten aus sign up form in dict und json zu laden
 def load_sign_up_form():
 	result = None
@@ -50,6 +53,7 @@ def load_sign_up_form():
 	        "e_mail": result['e_mail'],
 	        "password": result['password'],
 	        "confirm_password": result['confirm_password'],
+	        "salary": result['salary'],
 	        "budget": result['budget']
 	        }
 		existing_sign_up.append(user_data_dictionary)
@@ -57,7 +61,7 @@ def load_sign_up_form():
 	
 		print(existing_sign_up)
 		return redirect(url_for('dashboard'))
-	return render_template ("sign_up2.html")
+	return render_template ("sign_up.html")
 
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/dashboard", methods=['GET', 'POST'])
@@ -103,7 +107,10 @@ def load_newstransaction_form():
 	print(existing_transaction)
 	sum = total_transactions(existing_transaction)
 
-	return render_template("budget.html", data1=existing_transaction, sum=sum)
+	print(existing_sign_up)
+	sum_salary = total_salary(existing_sign_up)
+
+	return render_template("budget.html", data1=existing_transaction, sum=sum, sum_salary=sum_salary)
 
 
 
