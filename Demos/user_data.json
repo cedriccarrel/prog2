@@ -1,61 +1,10 @@
 [
     {
-        "username": "Test",
-        "e_mail": "Test@testmail",
-        "password": "123",
-        "confirm_password": "123",
-        "budget": "100"
-    },
-    {
-        "username": "test",
-        "e_mail": "Test@testmail",
-        "password": "123",
-        "confirm_password": "123",
-        "budget": "100"
-    },
-    {
-        "username": "admin",
+        "username": "C\u00e9di",
         "e_mail": "cedi_16@hotmail.com",
-        "password": "123",
-        "confirm_password": "123",
-        "budget": "100"
-    },
-    {
-        "username": "",
-        "e_mail": "",
-        "password": "",
-        "confirm_password": "",
-        "budget": ""
-    },
-    {
-        "username": "alexandre",
-        "e_mail": "alexandre@test.ch",
-        "password": "alex123",
-        "confirm_password": "alex123",
-        "budget": "200"
-    },
-    {
-        "username": "C\u00e9dric",
-        "e_mail": "cedi_16@hotmail.com",
-        "password": "12345",
-        "confirm_password": "12345",
-        "salary": "500",
+        "password": "Test123",
+        "confirm_password": "Test123",
+        "salary": "2000",
         "budget": "300"
-    },
-    {
-        "username": "asdf",
-        "e_mail": "asfd@adf",
-        "password": "1",
-        "confirm_password": "1",
-        "salary": "200",
-        "budget": "100"
-    },
-    {
-        "username": "",
-        "e_mail": "",
-        "password": "",
-        "confirm_password": "",
-        "salary": "",
-        "budget": ""
     }
 ]

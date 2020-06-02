@@ -1,8 +1,23 @@
 from flask import Flask, render_template, redirect, url_for, request
 import json
+from flask_mail import Message, Mail
 
 app = Flask(__name__)
 
+#E-Mail Konfiguration
+app.config.update(dict(
+    DEBUG = True,
+    MAIL_SERVER = 'smtp.gmail.com',
+    MAIL_PORT = 587,
+    MAIL_USE_TLS = True,
+    MAIL_USE_SSL = False,
+    MAIL_USERNAME = 'testotester525@gmail.com',
+    MAIL_PASSWORD = 'Test123?',
+))
+
+mail = Mail(app)
+
+#Jason laden für Ausgaben, Userdata
 def lade_daten_aus_json (pfad, standard_wert = []):
     try:
         with open(pfad, 'r') as datei:
@@ -63,10 +78,23 @@ def load_sign_up_form():
 		return redirect(url_for('dashboard'))
 	return render_template ("sign_up.html")
 
-@app.route("/forgot_password")
+@app.route("/forgot_password",methods=['GET','POST'])
 def forgot_password():
+	text="Hello"
+	sender="from@example.com"
+	data_mail=lade_daten_aus_json("user_data.json")
+	if request.method == 'POST':
+		mail_new = request.form['e_mail']
+		for e in data_mail:
+			if e['e_mail'].lower() == mail_new.lower():
+				msg = Message("Hallo",
+                  sender="from@example.com",
+                  recipients=mail_new)
+		mail.send(msg)
+		return redirect(url_for('login'))
 	return render_template("forgot_password.html")
 
+#doppelte Route, für Dashboard mit /, oder /dashboard
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/dashboard", methods=['GET', 'POST'])
 def dashboard():
@@ -75,10 +103,6 @@ def dashboard():
 @app.route("/tasks")
 def tasks():
 	return render_template("tasks.html")
-
-@app.route('/index/<name>')
-def index(name):
-	return render_template("index.html", name=name)
 
 @app.route("/newtransactions")
 def newtransactions():

@@ -9,7 +9,7 @@
 #		telefonnummer INTEGER, passwortvergessen TEXT
 #	)
 
-"""from flask import Flask
+from flask import Flask
 from flask_mail import Message, Mail
 from app.forms import ResetPasswordRequestForm
 
@@ -29,16 +29,15 @@ app.config.update(dict(
 
 mail = Mail(app)
 
+
+
+
+"""
 @app.route("/")
 def index():
 
-    msg = Message("Hello",
-                  sender="from@example.com",
-                  recipients=["simeon_soli@msn.com"])
-
-    mail.send(msg)"""
-
-"""from app.forms import ResetPasswordRequestForm
+    
+from app.forms import ResetPasswordRequestForm
 from app.email import send_password_reset_email
 
 @app.route('/reset_password_request', methods=['GET', 'POST'])
@@ -53,5 +52,3 @@ def reset_password_request():
     return render_template('reset_password_request.html',
                            title='Reset Password', form=form) 
 
-if __name__ == "__main__":
-	app.run(debug=True, port=5000)"""
