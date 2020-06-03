@@ -1,10 +1,66 @@
 [
     {
-        "username": "C\u00e9di",
+        "username": "C\u00e9dric",
         "e_mail": "cedi_16@hotmail.com",
-        "password": "Test123",
-        "confirm_password": "Test123",
-        "salary": "2000",
-        "budget": "300"
+        "password": "123",
+        "confirm_password": "123",
+        "salary": 2000.0,
+        "budget": 600.0
+    },
+    {
+        "username": "C\u00e9dric",
+        "e_mail": "Test@testmail",
+        "password": "1234",
+        "confirm_password": "1234",
+        "salary": 120.0,
+        "budget": 200.0
+    },
+    {
+        "username": "admin",
+        "e_mail": "cedi_16@hotmail.com",
+        "password": "1236",
+        "confirm_password": "1236",
+        "salary": 200.0,
+        "budget": 100.0
+    },
+    {
+        "username": "admin",
+        "e_mail": "cedi_16@hotmail.com",
+        "password": "",
+        "confirm_password": "",
+        "salary": 200.0,
+        "budget": 100.0
+    },
+    {
+        "username": "admin",
+        "e_mail": "cedi_16@hotmail.com",
+        "password": "",
+        "confirm_password": "",
+        "salary": 200.0,
+        "budget": 100.0
+    },
+    {
+        "username": "Test",
+        "e_mail": "cedi_16@hotmail.com",
+        "password": "12",
+        "confirm_password": "12",
+        "salary": 100.0,
+        "budget": 100.0
+    },
+    {
+        "username": "Test",
+        "e_mail": "cedi_16@hotmail.com",
+        "password": "1",
+        "confirm_password": "1",
+        "salary": 50.0,
+        "budget": 100.0
+    },
+    {
+        "username": "admin",
+        "e_mail": "cedi_16@hotmail.com",
+        "password": "1",
+        "confirm_password": "1",
+        "salary": 20.0,
+        "budget": 100.0
     }
 ]

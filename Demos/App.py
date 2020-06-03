@@ -36,10 +36,10 @@ def total_transactions(transactions):
 	return sum
 
 def total_salary(salaries):
-	sum_salary = 0
+	sum2 = 0
 	for salary in salaries:
-		sum_salary = sum_salary + salary['salary']
-	return sum_salary
+		sum2 = sum2 + salary['salary']
+	return sum2
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -68,13 +68,15 @@ def load_sign_up_form():
 	        "e_mail": result['e_mail'],
 	        "password": result['password'],
 	        "confirm_password": result['confirm_password'],
-	        "salary": result['salary'],
-	        "budget": result['budget']
+	        "salary": float(result['salary']),
+	        "budget": float(result['budget'])
 	        }
 		existing_sign_up.append(user_data_dictionary)
 		schreibe_daten_in_json("user_data.json", existing_sign_up)
 	
 		print(existing_sign_up)
+		sum2 = total_salary(existing_sign_up)
+		print(sum2)
 		return redirect(url_for('dashboard'))
 	return render_template ("sign_up.html")
 
@@ -134,10 +136,11 @@ def load_newstransaction_form():
 	print(existing_transaction)
 	sum = total_transactions(existing_transaction)
 
-	print(existing_sign_up)
-	sum_salary = total_salary(existing_sign_up)
+	return render_template("budget.html", data1=existing_transaction, sum=sum)
 
-	return render_template("budget.html", data1=existing_transaction, sum=sum, sum_salary=sum_salary)
+def load_salary():
+	sum2 = total_salary(existing_sign_up)
+	return render_template("budget.html", sum2=sum2)
 
 
 
