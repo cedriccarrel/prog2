@@ -98,5 +98,15 @@
         "ausgabefirma": "Raiffise",
         "ausgabebeschreibung": "Test1",
         "ausgabehashtag": "kleider"
+    },
+    {
+        "titel": "Garten Fr\u00e4nzi",
+        "currency": "usd",
+        "ausgabebetrag": 2000.0,
+        "ausgabedauerauftrag": "dauerauftrag",
+        "ausgabedatum": "03.06.2020",
+        "ausgabefirma": "OBI",
+        "ausgabebeschreibung": "Garte well dpflanze kabutt isch",
+        "ausgabehashtag": "freizeit"
     }
 ]

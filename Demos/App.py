@@ -6,18 +6,20 @@ import plotly
 
 app = Flask(__name__)
 
-#E-Mail Konfiguration
-app.config.update(dict(
-    DEBUG = True,
-    MAIL_SERVER = 'smtp.gmail.com',
-    MAIL_PORT = 587,
-    MAIL_USE_TLS = False,
-    MAIL_USE_SSL = False,
-    MAIL_USERNAME = 'testotester525@gmail.com',
-    MAIL_PASSWORD = 'Test123?',
-))
 
+#E-Mail Konfiguration
+mail_settings = {
+    "MAIL_SERVER": 'smtp.gmail.com',
+    "MAIL_PORT": 587,
+    "MAIL_USE_TLS": True,
+    "MAIL_USE_SSL": False,
+    "MAIL_USERNAME": 'testotester525@gmail.com',
+    "MAIL_PASSWORD": 'Test123?'
+}
+
+app.config.update(mail_settings)
 mail = Mail(app)
+
 
 #Json laden für Ausgaben, Userdata
 def lade_daten_aus_json (pfad, standard_wert = []):
@@ -102,8 +104,10 @@ def forgot_password():
 		mail_new = request.form['e_mail']
 		for e in data_mail:
 			if e['e_mail'].lower() == mail_new.lower():
-				msg = Message("Hallo", sender="from@example.com", recipients=['mail_new'])
-				msg.body = "Das ist ein Testmail von Oktofinance"
+				msg = Message(subject="Passwort vergessen",
+				sender=app.config.get("MAIL_USERNAME"),#verweis nach oben (Zeile 16)
+				recipients=[mail_new], # email welche eingegeben wurde und mit sign_up übereinstimmt
+				body="Guten Tag! Hiermit können Sie Ihr Mail zurücksetzen" )
 		mail.send(msg)
 		return redirect(url_for('login'))
 	return render_template("forgot_password.html")
