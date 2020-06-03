@@ -11,7 +11,7 @@ app.config.update(dict(
     DEBUG = True,
     MAIL_SERVER = 'smtp.gmail.com',
     MAIL_PORT = 587,
-    MAIL_USE_TLS = True,
+    MAIL_USE_TLS = False,
     MAIL_USE_SSL = False,
     MAIL_USERNAME = 'testotester525@gmail.com',
     MAIL_PASSWORD = 'Test123?',
@@ -102,9 +102,8 @@ def forgot_password():
 		mail_new = request.form['e_mail']
 		for e in data_mail:
 			if e['e_mail'].lower() == mail_new.lower():
-				msg = Message("Hallo",
-                  sender="from@example.com",
-                  recipients=mail_new)
+				msg = Message("Hallo", sender="from@example.com", recipients=['mail_new'])
+				msg.body = "Das ist ein Testmail von Oktofinance"
 		mail.send(msg)
 		return redirect(url_for('login'))
 	return render_template("forgot_password.html")
