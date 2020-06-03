@@ -22,12 +22,15 @@ Im Dashboard wird einem grafisch angezeigt, wieviel man in den einzelnen Budgetp
 Weiter wird das Sparpotenzial grafisch dargestellt und dem Nutzer werden mögliche Budget-Swaps (Verschiebungen zwischen Konten und Ausgabeposten) angezeigt. 
 Dadurch ist eine Übersicht über das Budget, die getätigten Zahlungen und das aktuelle Vermögen gewährleistet.
 
-## Workflow
+## Flowchart Login
+![Flowchart_Login](./Prog2_Ablaufdiagramm_Login.pdf)
+
+## Flowchart Web-App
 ![Ablaufdiagramm](./Prog2_Ablaufdiagramm_V1.jpg)
 
 ### Dateneingabe
 Im Sign Up (Registrierung) wird der User folgende Daten eingeben können:
-- Username, E-Mail-Adresse, Passwort, monatliches Einkommen, Gesamtbudget
+- Username E-Mail-Adresse, Passwort, monatliches Einkommen, Gesamtbudget
 
 Im Login (Anmeldung) wird der User folgende Daten eingeben:
 - Username, Passwort

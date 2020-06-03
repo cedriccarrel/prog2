@@ -62,5 +62,13 @@
         "confirm_password": "1",
         "salary": 20.0,
         "budget": 100.0
+    },
+    {
+        "username": "Simeon",
+        "e_mail": "simelson@gmail.com",
+        "password": "123",
+        "confirm_password": "123",
+        "salary": 100000.0,
+        "budget": 300000.0
     }
 ]
