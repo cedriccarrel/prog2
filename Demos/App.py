@@ -6,6 +6,19 @@ import plotly
 
 app = Flask(__name__)
 
+<<<<<<< HEAD
+=======
+#E-Mail Konfiguration
+app.config.update(dict(
+    DEBUG = True,
+    MAIL_SERVER = 'smtp.gmail.com',
+    MAIL_PORT = 587,
+    MAIL_USE_TLS = True,
+    MAIL_USE_SSL = False,
+    MAIL_USERNAME = 'testotester525@gmail.com',
+    MAIL_PASSWORD = 'Test123?',
+))
+>>>>>>> 59129ed8433fdedb0e90a3a7e12b51e0d3ff5e17
 
 #E-Mail Konfiguration
 mail_settings = {

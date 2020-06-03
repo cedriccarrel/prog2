@@ -64,6 +64,7 @@
         "budget": 100.0
     },
     {
+<<<<<<< HEAD
         "username": "Chiara",
         "e_mail": "c.stampete@yahoo.it",
         "password": "123",
@@ -86,5 +87,13 @@
         "confirm_password": "1",
         "salary": 10.0,
         "budget": 100.0
+=======
+        "username": "Simeon",
+        "e_mail": "simelson@gmail.com",
+        "password": "123",
+        "confirm_password": "123",
+        "salary": 100000.0,
+        "budget": 300000.0
+>>>>>>> 59129ed8433fdedb0e90a3a7e12b51e0d3ff5e17
     }
 ]
