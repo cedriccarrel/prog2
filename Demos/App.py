@@ -108,7 +108,7 @@ def forgot_password():
 				sender=app.config.get("MAIL_USERNAME"),#verweis nach oben (Zeile 16)
 				recipients=[mail_new], # email welche eingegeben wurde und mit sign_up übereinstimmt
 				body="Guten Tag! Hiermit können Sie Ihr Mail zurücksetzen" )
-		mail.send(msg)
+				mail.send(msg)
 		return redirect(url_for('login'))
 	return render_template("forgot_password.html")
 

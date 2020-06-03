@@ -1,99 +1,18 @@
 [
     {
-        "username": "C\u00e9dric",
+        "username": "Cedric.Carrel",
         "e_mail": "cedi_16@hotmail.com",
-        "password": "123",
-        "confirm_password": "123",
-        "salary": 2000.0,
-        "budget": 600.0
-    },
-    {
-        "username": "C\u00e9dric",
-        "e_mail": "Test@testmail",
-        "password": "1234",
-        "confirm_password": "1234",
-        "salary": 120.0,
-        "budget": 200.0
-    },
-    {
-        "username": "admin",
-        "e_mail": "cedi_16@hotmail.com",
-        "password": "1236",
-        "confirm_password": "1236",
-        "salary": 200.0,
-        "budget": 100.0
-    },
-    {
-        "username": "admin",
-        "e_mail": "cedi_16@hotmail.com",
-        "password": "",
-        "confirm_password": "",
-        "salary": 200.0,
-        "budget": 100.0
-    },
-    {
-        "username": "admin",
-        "e_mail": "cedi_16@hotmail.com",
-        "password": "",
-        "confirm_password": "",
-        "salary": 200.0,
-        "budget": 100.0
-    },
-    {
-        "username": "Test",
-        "e_mail": "cedi_16@hotmail.com",
-        "password": "12",
-        "confirm_password": "12",
+        "password": "1",
+        "confirm_password": "1",
         "salary": 100.0,
         "budget": 100.0
     },
     {
-        "username": "Test",
-        "e_mail": "cedi_16@hotmail.com",
+        "username": "Xavier",
+        "e_mail": "ccarrel95@gmail.com",
         "password": "1",
         "confirm_password": "1",
-        "salary": 50.0,
+        "salary": 100.0,
         "budget": 100.0
-    },
-    {
-        "username": "admin",
-        "e_mail": "cedi_16@hotmail.com",
-        "password": "1",
-        "confirm_password": "1",
-        "salary": 20.0,
-        "budget": 100.0
-    },
-    {
-<<<<<<< HEAD
-        "username": "Chiara",
-        "e_mail": "c.stampete@yahoo.it",
-        "password": "123",
-        "confirm_password": "123",
-        "salary": 10.0,
-        "budget": 100.0
-    },
-    {
-        "username": "Fr\u00e4nzi",
-        "e_mail": "franziska.hohl@outlook.com",
-        "password": "1",
-        "confirm_password": "1",
-        "salary": 50.0,
-        "budget": 100.0
-    },
-    {
-        "username": "Fabio",
-        "e_mail": "fabio.allegrini@outlook.com",
-        "password": "1",
-        "confirm_password": "1",
-        "salary": 10.0,
-        "budget": 100.0
-=======
-        "username": "Simeon",
-        "e_mail": "simelson@gmail.com",
-        "password": "123",
-        "confirm_password": "123",
-        "salary": 100000.0,
-        "budget": 300000.0
->>>>>>> 59129ed8433fdedb0e90a3a7e12b51e0d3ff5e17
     }
 ]
