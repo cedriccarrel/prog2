@@ -23,7 +23,7 @@ Weiter wird das Sparpotenzial grafisch dargestellt und dem Nutzer werden möglic
 Dadurch ist eine Übersicht über das Budget, die getätigten Zahlungen und das aktuelle Vermögen gewährleistet.
 
 ## Flowchart Login
-![Flowchart_Login](./Prog2_Ablaufdiagramm_Login.pdf)
+![Flowchart_Login](./Prog2_Flowchart_Login.jpg)
 
 ## Flowchart Web-App
 ![Ablaufdiagramm](./Prog2_Ablaufdiagramm_V1.jpg)
