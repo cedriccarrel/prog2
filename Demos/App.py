@@ -17,7 +17,7 @@ app.config.update(dict(
 
 mail = Mail(app)
 
-#Jason laden für Ausgaben, Userdata
+#Json laden für Ausgaben, Userdata
 def lade_daten_aus_json (pfad, standard_wert = []):
     try:
         with open(pfad, 'r') as datei:
@@ -78,10 +78,9 @@ def load_sign_up_form():
 		return redirect(url_for('dashboard'))
 	return render_template ("sign_up.html")
 
+#def um vergessenes Passwort durch Angabe von hinterlegter Mailadresse anzufordern
 @app.route("/forgot_password",methods=['GET','POST'])
 def forgot_password():
-	text="Hello"
-	sender="from@example.com"
 	data_mail=lade_daten_aus_json("user_data.json")
 	if request.method == 'POST':
 		mail_new = request.form['e_mail']
@@ -94,7 +93,7 @@ def forgot_password():
 		return redirect(url_for('login'))
 	return render_template("forgot_password.html")
 
-#doppelte Route, für Dashboard mit /, oder /dashboard
+#doppelte URL abfrage, für Dashboard mit /, oder /dashboard
 @app.route("/", methods=['GET', 'POST'])
 @app.route("/dashboard", methods=['GET', 'POST'])
 def dashboard():
