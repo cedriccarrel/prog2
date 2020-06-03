@@ -1,31 +1,38 @@
 # Projekt: Oktofinance 2.0
 ## Ausgangslage / Problemstellung
-Die bestehenden Spar und Budgetfunktionen der Banken im E-Banking, sind nicht sexy und machen keinen Spass. Die meisten Leute kennen diese Funktionen nicht einmal, da das E-Banking kein Ort ist, den man mit positiven Emotionen verbindet. Dementsprechend möchte man sich da nicht allzu lang darin aufhalten.
+Die bestehenden Spar und Budgetfunktionen im E-Banking sind nicht sexy und machen einfach keinen Spass. Die meisten Leute kennen diese Funktionen nicht einmal, da das E-Banking kein Ort ist, an dem man sich länger als nötig aufhalten möchte.
 
-Der Zeitpunkt, wenn man darüber informiert wird, dass man sparen muss, ist nicht akkurat. Das Geld ist meistens schon ausgegeben bis man sich Ende Monat wieder im E-Banking einloggt und den dortigen Sparplaner aufruft, vorausgesetzt man kennt ihn überhaupt. Z.B. beim Onlineshopping wird man nicht daran erinnert, dass man sich diese Kleider nicht leisten kann.
-Vielen Menschen fehlt die Motivation Rechnungen zu bezahlen. Dies ist auf verschiedene Gründe zurückzuführen. Einerseits schreckt die damit verbundene Umständlichkeit (Transaktionen kategorisieren, Sparziele festlegen, Analysen etc.) ein Teil der Benutzer ab andererseits sehen sich viele Menschen, aufgrund der fehlenden Weitsicht, finanziell an die Wand gedrängt, weshalb ein Zahlen von Rechnungen in ihrem Fall mit unangenehmen Emotionen verbunden ist.
+Ein weiteres Problem besteht darin, dass der Zeitpunkt, an dem man darauf hingewiesen wird, dass man jetzt spätestens sparen muss, in diesen Tools nicht akkurat ist. Das Geld ist meist schon ausgegeben, bis man sich Ende Monat wieder im E-Banking einloggt und den dortigen Sparplaner aufruft.
+Vielen Menschen fehlt die Motivation ihr Budget zu planen. Der damit verbundene Aufwand (Transaktionen kategorisieren, Sparziele festlegen, Analysen etc.) schreckt einen Grossteil der potenziellen Nutzer ab.
 
-Bei Papierrechnungen ist das Sortieren, Erinnern und Archivieren häufig ein Pain-Point. Z.B. Rechnungen die man bei den Steuern abziehen kann werden vergessen, gehen verloren oder man hat sie nicht zum richtigen Zeitpunkt zur Hand.
+## Projektidee
+Wir wollen, eine Web-App programmieren, die durch Einfachheit und Nuterfreundlichkeit besticht. Dies soll die Nutzer motivieren, sich mit dem Sparen auseinanderzusetzen. Wir möchten ihnen dabei helfen, finanzielle Entscheide besser treffen zu können. 
 
-Im Zeitalter der Digitalisierung werden dem Kunden ein Grossteil der Rechnungen per Mail zugestellt. Dies bietet zwar viele Vorteile und scheint den Ansprüchen der heutigen User besser gerecht zu werden als eine Rechnung in Papierform. Aufgrund viele Mails und Spams geht die Übersicht im Posteingang verloren und man vergisst die Rechnungen zu begleichen.
+Sparziele sollen keine weit entfernten Träume mehr darstellen, sondern Realität werden.
 
-## Lösungs Idee
-In der heutigen Konsumgesellschaft ist Geld ist für jedermann von zentraler Bedeutung. Gemäss der obenstehenden Problembeschreibung sehen wir ein Grundsatzproblem, dass sparen nicht im Alltag integriert ist, obwohl dies fatale folgen haben kann, wenn man sein Vermögen nicht optimal verwaltet. Wir wollen, dass die Nutzer unserer Applikation eine Motivation haben sich mit dem Sparen auseinander zusetzen, damit sie keine Einschränkungen haben.
+Ziel des Projektes ist eine Budgetplanungs-Applikation zu bauen, mit welcher man sein Budget für verschiedene anstehende Ausgaben (z.B. Lebensmittel, Ferien, Kleider, Arztrechnungen etc.) des täglichen Lebens planen kann. Wir haben uns für eine Web-App entschieden, damit Sparen wieder spass macht und man mit Freude sein Budget plant.
 
-Ziel des Projektes ist eine Budgetplanungs-Applikation zu bauen mit welcher man sein Budget für verschiedene anstehende Ausgaben (z.B. Lebensmittel, Ferien, Kleider, Arztrechnungen etc.) des täglichen Lebens planen kann. Wir haben uns für eine Mobile-App entschieden, damit wir die oben beschriebene niederschwellige Art und Weise des sparens hinkriegen und sparen im Leben in Zukunft integriert sein wird.
+## Funktionen
+Der Nutzer kreiert über die Sign Up-Funktion einen Account. Dieser enthält Username, Passwort, E-Mail-Adresse, Budgetziel und Einkommen. Diese Daten fliessen danach in das Dashboard des Users ein.
+Sobald der User registriert ist, kann er sich über die Loginfunktion einloggen. Falls er sein Passwort vergessen hat, lässt sich dieses über die Forgotten Password-Funktion zurücksetzen.
 
-## Funktion
-In der App können Sparziele definiert werden (lang- und kurzfristige Ziele), Zahlungen geplant werden (Scan einer Rechnung, Manuelle Eingabe, Upload einer PDF-Rechnung aus dem Email), und sie gibt einem an wie viel man in den einzelnen Budgetposten im aktuellen Monat oder Jahr noch ausgeben darf. Weiter wird das Sparpotenzial grafisch dargestellt und mögliche Budget-Swaps (Verschiedene Konten und Ausgabeposten) werden mittels Pop-Up dem Nutzer angegeben. Somit sollte eine Übersicht über das aktuelle Vermögen gewährleistet sein. Bei einer Online-Bestellung wird ein Pop-Up erscheinen, welches dem User angibt, wie sich die Bestellsumme auf die eigenen Kontostände und Sparziele auswirkt. Ist die Steuerrechnung fällig (wird vom Nutzer anfangs Jahr angegeben), werden die Rechnungen dem User mitgeteilt, welche steuerrelevant sind.
+Über die Funktion "New Transactions" kann der Nutzer Zahlungen und Ausgaben eingegeben welche direkt vom Budget abgerechnet werden.
+
+Im Dashboard wird einem grafisch angezeigt, wieviel man in den einzelnen Budgetposten im aktuellen Monat oder Jahr noch ausgeben darf. 
+Weiter wird das Sparpotenzial grafisch dargestellt und dem Nutzer werden mögliche Budget-Swaps (Verschiebungen zwischen Konten und Ausgabeposten) angezeigt. 
+Dadurch ist eine Übersicht über das Budget, die getätigten Zahlungen und das aktuelle Vermögen gewährleistet.
 
 ## Workflow
 ![Ablaufdiagramm](./Prog2_Ablaufdiagramm_V1.jpg)
 
-### Prozess
-- [ ] TODO
-
 ### Dateneingabe
-Im Interface wir der User folgende Daten eingeben können:
-- Aktuelles Vermögen/Gesamtbudget
+Im Sign Up (Registrierung) wird der User folgende Daten eingeben können:
+- Username, E-Mail-Adresse, Passwort, monatliches Einkommen, Gesamtbudget
+
+Im Login (Anmeldung) wird der User folgende Daten eingeben:
+- Username, Passwort
+
+In "New Transactions":
 - Angabe Budget pro Ausgabenposten - In welchen Bereichen ist wie viel Budget vorhanden?
 - Eingabe der offenen Ausgaben und Rechnungen per Scan, manueller Angabe oder Upload als PDF-File
 - Definition von kurz- und langfristigen Sparzielen
@@ -33,27 +40,11 @@ Im Interface wir der User folgende Daten eingeben können:
 - Angabe des Sparzwangs (Stark, Mittel und leicht)
 
 ### Datenverarbeitung / Speicherung
-- [ ] TODO
+- User Daten werden als json-Datei abgespeichert und sind persistent.
+- Transaktionsdaten werden auch als json-Datei abgespeichert und sind persistent.
 
 ### Datenausgabe
-- Überischt aller Ausgaben als Kuchendiagramm
+- Übersicht aller Ausgaben als Kuchendiagramm
 - Übersicht des aktuellen Budgets als Balkendiagramm
 - Anzeige Ausgabenverlauf im Liniendiagramm
 - Anzeige Sparpotential als Balkendiagramm - wird im Budget grün dargestellt
-- SMS Alert, sobald Budget überschritten wurde
-
-## Pendenzen
-### Zuteilung HTML-Struktur
-- [] Login --> Simeon
-- [] Sign-Up --> Cédi
-- [] Home (Dashboard) --> Simeon
-- [] Budget --> Simeon
-- [] Transaktionen --> Cédi
-- [] Auswertungen --> Cédi
-- [] Navigation --> Simeon
-- []
-
-### Fragen:
-- [] Datenbank
-- [] Download Bootstrap?
-
