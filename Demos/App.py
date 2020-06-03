@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect, url_for, request
 import json
 from flask_mail import Message, Mail
+import plotly.graph_objects as go
+import plotly
 
 app = Flask(__name__)
 
@@ -17,7 +19,7 @@ app.config.update(dict(
 
 mail = Mail(app)
 
-#Jason laden für Ausgaben, Userdata
+#json laden für Ausgaben, Userdata
 def lade_daten_aus_json (pfad, standard_wert = []):
     try:
         with open(pfad, 'r') as datei:
@@ -25,21 +27,32 @@ def lade_daten_aus_json (pfad, standard_wert = []):
     except Exception:
         return standard_wert
 
+#ins json schreiben
 def schreibe_daten_in_json(pfad, daten):
     with open(pfad, 'w') as datei:
         json.dump(daten, datei, indent = 4)
 
+#summe aller transaktionen
 def total_transactions(transactions):
 	sum = 0
 	for transaction in transactions:
 		sum = sum + transaction['ausgabebetrag']
 	return sum
 
+#summe aller Einnahmen
 def total_salary(salaries):
 	sum2 = 0
 	for salary in salaries:
 		sum2 = sum2 + salary['salary']
 	return sum2
+
+#def. um Diagram zu zeichnen
+def zeichne_balken_diagram(x_daten, y_daten):
+    fig = go.Figure(
+        data=[go.Bar(x = x_daten, y = y_daten)],
+        #layout_title_text="Ausgaben"
+        )
+    return plotly.offline.plot(fig, output_type="div")
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -75,6 +88,7 @@ def load_sign_up_form():
 		schreibe_daten_in_json("user_data.json", existing_sign_up)
 	
 		print(existing_sign_up)
+		#übergabe der berechnung von sum2 an Budget.html funktioniert noch nicht
 		sum2 = total_salary(existing_sign_up)
 		print(sum2)
 		return redirect(url_for('dashboard'))
@@ -103,8 +117,20 @@ def dashboard():
 	return render_template("dashboard.html")
 
 @app.route("/tasks")
-def tasks():
-	return render_template("tasks.html")
+def graph():
+	# Hole Daten für Diagramm und schreibe es in Variable
+    grafik = lade_daten_aus_json("ausgaben.json")
+    fig = go.Figure()
+    x = "test"
+    y_school = []
+    y_food = []
+    #fehler im get Befehl
+    for i in grafik.get("ausgabehashtag", []):
+            y_school.append(i["schule"])
+            y_food.append(i["essen"])
+
+    ausgaben_diagram = zeichne_balken_diagram(x, y_gewicht, "Ausgabenansicht")
+    return render_template("tasks.html", ausgaben_diagram=ausgaben_diagram)
 
 @app.route("/newtransactions")
 def newtransactions():
@@ -139,6 +165,7 @@ def load_newstransaction_form():
 
 	return render_template("budget.html", data1=existing_transaction, sum=sum)
 
+#passiert noch nix...
 def load_salary():
 	sum2 = total_salary(existing_sign_up)
 	return render_template("budget.html", sum2=sum2)

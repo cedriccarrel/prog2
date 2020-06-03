@@ -8,6 +8,33 @@
 </head>
 <body>
 	<h1>TASKS</h1>
+<div class="container-fluid mt-4">
+	<h1>Detailsansicht Budget:</h1>
+				{% if (grafik["ausgabehashtag"] | length) > 0 %}
+					<table class ="table">
+						<thead>
+							<tr>
+								<th scope="col">Schule</th>
+								<th scope="col">Essen</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for i in grafik["ausgabehashtag"] %}
+								<tr>
+									<td>{{i['schule']}}</td>
+									<td>{{i['essen']}}</td>
+								</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					{{ ausgaben_diagram | safe }}
+				{% else %}
+					<h1>Keine Einträge verfügbar</h1>
+				{% endif %}
+			{% endif %}
+		</div>
+
+
 </body>
 
 <footer>
