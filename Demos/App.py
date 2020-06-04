@@ -130,6 +130,10 @@ def dashboard():
 
 @app.route("/tasks") #anzeige der Ausgaben
 def viz():
+	#load data from user_date.json
+	data_grafic = lade_daten_aus_json("ausgaben.json")
+
+
 	# create data
 	labels = ['groupA', 'groupB', 'groupC', 'groupD']
 	values = [12, 11, 3, 30]
