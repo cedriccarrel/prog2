@@ -21,6 +21,7 @@ mail_settings = {
 }
 
 app.config.update(mail_settings)
+#Instanz der Klasse Mail
 mail = Mail(app)
 
 
@@ -107,12 +108,13 @@ def forgot_password():
 	data_mail=lade_daten_aus_json("user_data.json")
 	if request.method == 'POST':
 		mail_new = request.form['e_mail']
+		#user_password = request.json('password')
 		for e in data_mail:
 			if e['e_mail'].lower() == mail_new.lower():
 				msg = Message(subject="Passwort vergessen",
 				sender=app.config.get("MAIL_USERNAME"),#verweis nach oben (Zeile 16)
 				recipients=[mail_new], # email welche eingegeben wurde und mit sign_up übereinstimmt
-				body="Guten Tag! Hiermit können Sie Ihr Mail zurücksetzen" )
+				body="Guten Tag! Ihr Passwort lautet:") #+ user_password# + "!")
 				mail.send(msg)
 		return redirect(url_for('login'))
 	return render_template("forgot_password.html")
