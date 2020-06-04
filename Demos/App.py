@@ -1,8 +1,11 @@
 from flask import Flask, render_template, redirect, url_for, request
 import json
 from flask_mail import Message, Mail
-import plotly.graph_objects as go
-import plotly
+import plotly #Library install via Conda --> Befehl: conda install plotly
+import matplotlib.pyplot as plt
+import plotly.graph_objects as go #somit wurde die Grafik angesprochen
+from plotly.offline import plot 
+
 
 app = Flask(__name__)
 
@@ -60,6 +63,8 @@ def zeichne_balken_diagram(x_daten, y_daten):
 def login():
     error = None
     users = lade_daten_aus_json("user_data.json")
+    #anschrift = users["username"][1]
+    #print(anschrift)
     if request.method == 'POST':
     	username = request.form['username']
     	passwort = request.form['password']
@@ -118,21 +123,15 @@ def forgot_password():
 def dashboard():
 	return render_template("dashboard.html")
 
-@app.route("/tasks")
-def graph():
-	# Hole Daten für Diagramm und schreibe es in Variable
-    grafik = lade_daten_aus_json("ausgaben.json")
-    fig = go.Figure()
-    x = "test"
-    y_school = []
-    y_food = []
-    #fehler im get Befehl
-    for i in grafik.get("ausgabehashtag", []):
-            y_school.append(i["schule"])
-            y_food.append(i["essen"])
-
-    ausgaben_diagram = zeichne_balken_diagram(x, y_gewicht, "Ausgabenansicht")
-    return render_template("tasks.html", ausgaben_diagram=ausgaben_diagram)
+@app.route("/tasks") #anzeige der Ausgaben
+def viz():
+	# create data
+	labels = ['groupA', 'groupB', 'groupC', 'groupD']
+	values = [12, 11, 3, 30]
+	#create figure
+	fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.7)])
+	div = plot(fig, output_type="div") #create div from figure and send to render template as div
+	return render_template('tasks.html', viz_div=div)
 
 @app.route("/newtransactions")
 def newtransactions():
