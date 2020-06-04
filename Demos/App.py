@@ -106,6 +106,9 @@ def load_sign_up_form():
 @app.route("/forgot_password",methods=['GET','POST'])
 def forgot_password():
 	data_mail=lade_daten_aus_json("user_data.json")
+	for i in data_mail:
+		liste_username = (i.get('username'))
+		print(liste_username)
 	if request.method == 'POST':
 		mail_new = request.form['e_mail']
 		#user_password = request.json('password')
@@ -114,7 +117,7 @@ def forgot_password():
 				msg = Message(subject="Passwort vergessen",
 				sender=app.config.get("MAIL_USERNAME"),#verweis nach oben (Zeile 16)
 				recipients=[mail_new], # email welche eingegeben wurde und mit sign_up übereinstimmt
-				body="Guten Tag! Ihr Passwort lautet:") #+ user_password# + "!")
+				body="Guten Tag!" + " " + liste_username + " " + "Ihr Passwort lautet:") #+ user_password# + "!")
 				mail.send(msg)
 		return redirect(url_for('login'))
 	return render_template("forgot_password.html")

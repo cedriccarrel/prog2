@@ -108,5 +108,15 @@
         "ausgabefirma": "OBI",
         "ausgabebeschreibung": "Garte well dpflanze kabutt isch",
         "ausgabehashtag": "freizeit"
+    },
+    {
+        "titel": "Auto Anthony",
+        "currency": "eur",
+        "ausgabebetrag": 5000.0,
+        "ausgabedauerauftrag": "einfacherauftrag",
+        "ausgabedatum": "04.06.2020",
+        "ausgabefirma": "Mercedes",
+        "ausgabebeschreibung": "Neuer Mercedes Anthony",
+        "ausgabehashtag": "pers\u00f6nlich"
     }
 ]
