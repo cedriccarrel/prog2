@@ -22,9 +22,20 @@
 				{% endfor %}
 		</tbody>
 	</table>
-
-	{{ sum }}
-	{{ sum2 }}
+	<table class="table table-striped">
+		<tbody>
+			<td>{{ sum }}</td>
+			<td>{{ sum_essen }}</td>
+			<td>{{ sum_haushalt }}</td>
+			<td>{{ sum_schule }}</td>
+			<td>{{ sum_kleider }}</td>
+			<td>{{ sum_sport }}</td>
+			<td>{{ sum_freizeit }}</td>
+			<td>{{ sum_kommunikation }}</td>
+			<td>{{ sum_persönlich }}</td>
+			<td>{{ sum2 }}</td>
+		</tbody>
+	</table>
 
 
 <!-- Betrag pro Transaction auslesen aus newtransactions, anschliessend zusammenrechnen -->

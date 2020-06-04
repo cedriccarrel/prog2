@@ -1,54 +1,54 @@
-#einnahmen (
-#		sparziel FLOAT, sparzeitraum INTEGER, hashtagsparen TEXT,
-#		einnahmefirma FLOAT, einnahmebetrag FLOAT, einnahmedatum FLOAT,
-#		einnahmedauerauftrag TEXT, einnahmehashtag TEXT, einnahmebeschreibung TEXT
-#	)
-	
-#personalien (
-#		name TEXT, vorname TEXT, situation TEXT, email TEXT, passwort TEXT, username TEXT, 
-#		telefonnummer INTEGER, passwortvergessen TEXT
-#	)
+#test file
 
-from flask import Flask
-from flask_mail import Message, Mail
-from app.forms import ResetPasswordRequestForm
-
-app = Flask(__name__)
-
-#E-Mail Konfiguration
-
-app.config.update(dict(
-    DEBUG = True,
-    MAIL_SERVER = 'smtp.gmail.com',
-    MAIL_PORT = 587,
-    MAIL_USE_TLS = True,
-    MAIL_USE_SSL = False,
-    MAIL_USERNAME = 'testotester525@gmail.com',
-    MAIL_PASSWORD = 'Test123?',
-))
-
-mail = Mail(app)
-
-
-
-
-"""
-@app.route("/")
-def index():
-
-    
-from app.forms import ResetPasswordRequestForm
-from app.email import send_password_reset_email
-
-@app.route('/reset_password_request', methods=['GET', 'POST'])
-def reset_password_request():
-    form = ResetPasswordRequestForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        if user:
-            send_password_reset_email(user)
-        flash('Check your email for the instructions to reset your password')
-        return redirect(url_for('login'))
-    return render_template('reset_password_request.html',
-                           title='Reset Password', form=form) 
-
+#berechnung summe je Hashtag welche im json "ausgaben.json" eingegeben wurden
+def total_hashtags(transactions):
+    sum_essen = 0
+    sum_haushalt = 0
+    sum_schule = 0
+    sum_kleider = 0
+    sum_sport = 0
+    sum_freizeit = 0
+    sum_kommunikation = 0
+    sum_persönlich = 0
+    for transaction in transactions:
+        if transaction['ausgabehashtag'] == "essen":
+            gefundener_hashtag = transaction['ausgabehashtag']
+            find_betrag_essen = float(transaction['ausgabebetrag'])
+            sum_essen = sum_essen + find_betrag_essen
+            #print(sum_essen)
+        if transaction['ausgabehashtag'] == "haushalt":
+            gefundener_hashtag = transaction['ausgabehashtag']
+            find_betrag_haushalt = float(transaction['ausgabebetrag'])
+            sum_haushalt = sum_haushalt + find_betrag_haushalt
+            #print(sum_haushalt)
+        if transaction['ausgabehashtag'] == "schule":
+            gefundener_hashtag = transaction['ausgabehashtag']
+            find_betrag_schule = float(transaction['ausgabebetrag'])
+            sum_schule = sum_schule + find_betrag_schule
+            #print(sum_schule)
+        if transaction['ausgabehashtag'] == "kleider":
+            gefundener_hashtag = transaction['ausgabehashtag']
+            find_betrag_kleider = float(transaction['ausgabebetrag'])
+            sum_kleider = sum_kleider + find_betrag_kleider
+            #print(sum_kleider)
+        if transaction['ausgabehashtag'] == "sport":
+            gefundener_hashtag = transaction['ausgabehashtag']
+            find_betrag_sport = float(transaction['ausgabebetrag'])
+            sum_sport = sum_sport + find_betrag_sport
+            #print(sum_sport)
+        if transaction['ausgabehashtag'] == "kommunikation":
+            gefundener_hashtag = transaction['ausgabehashtag']
+            find_betrag_kommunikation = float(transaction['ausgabebetrag'])
+            sum_kommunikation = sum_kommunikation + find_betrag_kommunikation
+            #print(sum_kommunikation)
+        if transaction['ausgabehashtag'] == "persönlich":
+            gefundener_hashtag = transaction['ausgabehashtag']
+            find_betrag_persönlich = float(transaction['ausgabebetrag'])
+            sum_persönlich = sum_persönlich + find_betrag_persönlich
+            #print(sum_persönlich)
+        if transaction['ausgabehashtag'] == "freizeit":
+            gefundener_hashtag = transaction['ausgabehashtag']
+            find_betrag_freizeit = float(transaction['ausgabebetrag'])
+            sum_freizeit = sum_freizeit + find_betrag_freizeit
+            #print(sum_freizeit)
+    return sum_kleider, sum_persönlich, sum_kommunikation, sum_sport, sum_schule, sum_haushalt, sum_essen, sum_freizeit

@@ -1,122 +1,12 @@
 [
     {
         "titel": "Test1",
-        "currency": "chf",
-        "ausgabebetrag": 10.0,
-        "ausgabedauerauftrag": "dauerauftrag",
-        "ausgabedatum": "10.05.2020",
-        "ausgabefirma": "Migros",
-        "ausgabebeschreibung": "Test2",
-        "ausgabehashtag": "essen"
-    },
-    {
-        "titel": "Test30",
-        "currency": "chf",
-        "ausgabebetrag": 30.0,
-        "ausgabedauerauftrag": "dauerauftrag",
-        "ausgabedatum": "10.05.2020",
-        "ausgabefirma": "Migros",
-        "ausgabebeschreibung": "Test2",
-        "ausgabehashtag": "essen"
-    },
-    {
-        "titel": "Geldtest",
-        "currency": "usd",
-        "ausgabebetrag": 6000.0,
-        "ausgabedauerauftrag": "einfacherauftrag",
-        "ausgabedatum": "29.05.2020",
-        "ausgabefirma": "Migros",
-        "ausgabebeschreibung": "hal",
-        "ausgabehashtag": "haushalt"
-    },
-    {
-        "titel": "Garten papa",
-        "currency": "chf",
-        "ausgabebetrag": 222.0,
-        "ausgabedauerauftrag": "dauerauftrag",
-        "ausgabedatum": "15.05.2020",
-        "ausgabefirma": "Obi",
-        "ausgabebeschreibung": "Gartenlounge wege Gail",
-        "ausgabehashtag": "pers\u00f6nlich"
-    },
-    {
-        "titel": "Geldtest",
         "currency": "eur",
         "ausgabebetrag": 10.0,
-        "ausgabedauerauftrag": "einfacherauftrag",
+        "ausgabedauerauftrag": "dauerauftrag",
         "ausgabedatum": "10.05.2020",
         "ausgabefirma": "Raiffise",
         "ausgabebeschreibung": "Test1",
         "ausgabehashtag": "essen"
-    },
-    {
-        "titel": "Test1",
-        "currency": "eur",
-        "ausgabebetrag": 20.0,
-        "ausgabedauerauftrag": "dauerauftrag",
-        "ausgabedatum": "30.05.2020",
-        "ausgabefirma": "Migros",
-        "ausgabebeschreibung": "Test2",
-        "ausgabehashtag": "haushalt"
-    },
-    {
-        "titel": "Geldtest32",
-        "currency": "eur",
-        "ausgabebetrag": 50.0,
-        "ausgabedauerauftrag": "einfacherauftrag",
-        "ausgabedatum": "10.05.2020",
-        "ausgabefirma": "Raiffise",
-        "ausgabebeschreibung": "Test1",
-        "ausgabehashtag": "schule"
-    },
-    {
-        "titel": "Geldtest32",
-        "currency": "eur",
-        "ausgabebetrag": 50.0,
-        "ausgabedauerauftrag": "einfacherauftrag",
-        "ausgabedatum": "10.05.2020",
-        "ausgabefirma": "Raiffise",
-        "ausgabebeschreibung": "Test1",
-        "ausgabehashtag": "schule"
-    },
-    {
-        "titel": "Geldtest32",
-        "currency": "eur",
-        "ausgabebetrag": 50.0,
-        "ausgabedauerauftrag": "einfacherauftrag",
-        "ausgabedatum": "10.05.2020",
-        "ausgabefirma": "Raiffise",
-        "ausgabebeschreibung": "Test1",
-        "ausgabehashtag": "schule"
-    },
-    {
-        "titel": "Test1",
-        "currency": "eur",
-        "ausgabebetrag": 5000.0,
-        "ausgabedauerauftrag": "dauerauftrag",
-        "ausgabedatum": "26.05.2020",
-        "ausgabefirma": "Raiffise",
-        "ausgabebeschreibung": "Test1",
-        "ausgabehashtag": "kleider"
-    },
-    {
-        "titel": "Garten Fr\u00e4nzi",
-        "currency": "usd",
-        "ausgabebetrag": 2000.0,
-        "ausgabedauerauftrag": "dauerauftrag",
-        "ausgabedatum": "03.06.2020",
-        "ausgabefirma": "OBI",
-        "ausgabebeschreibung": "Garte well dpflanze kabutt isch",
-        "ausgabehashtag": "freizeit"
-    },
-    {
-        "titel": "Auto Anthony",
-        "currency": "eur",
-        "ausgabebetrag": 5000.0,
-        "ausgabedauerauftrag": "einfacherauftrag",
-        "ausgabedatum": "04.06.2020",
-        "ausgabefirma": "Mercedes",
-        "ausgabebeschreibung": "Neuer Mercedes Anthony",
-        "ausgabehashtag": "pers\u00f6nlich"
     }
 ]
