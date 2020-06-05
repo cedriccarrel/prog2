@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, url_for, request
 import json
 from flask_mail import Message, Mail
 import plotly #Library install via Conda --> Befehl: conda install plotly
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt #conda install -c conda-forge matplotlib
 import plotly.graph_objects as go #somit wurde die Grafik angesprochen
 from plotly.offline import plot 
 
@@ -16,7 +16,7 @@ mail_settings = {
     "MAIL_PORT": 587,
     "MAIL_USE_TLS": True,
     "MAIL_USE_SSL": False,
-    "MAIL_USERNAME": 'testotester525@gmail.com',
+    "MAIL_USERNAME": 'oktofinance2.0@gmail.com',
     "MAIL_PASSWORD": 'Test123?'
 }
 
@@ -160,14 +160,14 @@ def load_sign_up_form():
 @app.route("/forgot_password",methods=['GET','POST'])
 def forgot_password():
 	data_mail=lade_daten_aus_json("user_data.json")
-	for i in data_mail:
-		liste_username = (i.get('username'))
-		print(liste_username)
 	if request.method == 'POST':
 		mail_new = request.form['e_mail']
 		#user_password = request.json('password')
 		for e in data_mail:
 			if e['e_mail'].lower() == mail_new.lower():
+				for i in data_mail:
+					liste_username = (i.get('username'))
+					print(liste_username)
 				msg = Message(subject="Passwort vergessen",
 				sender=app.config.get("MAIL_USERNAME"),#verweis nach oben (Zeile 16)
 				recipients=[mail_new], # email welche eingegeben wurde und mit sign_up übereinstimmt
