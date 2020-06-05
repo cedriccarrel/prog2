@@ -2,7 +2,7 @@
 
 #berechnung summe je Hashtag welche im json "ausgaben.json" eingegeben wurden
 def total_hashtags(transactions):
-    sum_essen = 0
+
     sum_haushalt = 0
     sum_schule = 0
     sum_kleider = 0
@@ -10,17 +10,27 @@ def total_hashtags(transactions):
     sum_freizeit = 0
     sum_kommunikation = 0
     sum_persönlich = 0
+def total_essen(transactions):
+    sum_essen = 0
     for transaction in transactions:
         if transaction['ausgabehashtag'] == "essen":
             gefundener_hashtag = transaction['ausgabehashtag']
             find_betrag_essen = float(transaction['ausgabebetrag'])
             sum_essen = sum_essen + find_betrag_essen
             #print(sum_essen)
+        if sum_essen > 0:
+            return sum_essen
+def total_haushalt(transactions)
+    sum_haushalt = 0
         if transaction['ausgabehashtag'] == "haushalt":
             gefundener_hashtag = transaction['ausgabehashtag']
             find_betrag_haushalt = float(transaction['ausgabebetrag'])
             sum_haushalt = sum_haushalt + find_betrag_haushalt
             #print(sum_haushalt)
+        if sum_haushalt > 0:
+            return sum_haushalt
+
+
         if transaction['ausgabehashtag'] == "schule":
             gefundener_hashtag = transaction['ausgabehashtag']
             find_betrag_schule = float(transaction['ausgabebetrag'])
@@ -52,3 +62,4 @@ def total_hashtags(transactions):
             sum_freizeit = sum_freizeit + find_betrag_freizeit
             #print(sum_freizeit)
     return sum_kleider, sum_persönlich, sum_kommunikation, sum_sport, sum_schule, sum_haushalt, sum_essen, sum_freizeit
+

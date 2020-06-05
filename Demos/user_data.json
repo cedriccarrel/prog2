@@ -14,5 +14,13 @@
         "confirm_password": "1",
         "salary": 100.0,
         "budget": 100.0
+    },
+    {
+        "username": "Test Salary",
+        "e_mail": "cedric.carrel@bl",
+        "password": "1",
+        "confirm_password": "1",
+        "salary": 20.0,
+        "budget": 100.0
     }
 ]
