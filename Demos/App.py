@@ -146,6 +146,17 @@ def total_budget(budgets):
 		sum_budget = sum_budget + e['budget']
 	return sum_budget
 
+#def für Berechnung des aktuellen budgetschwellenwertes
+"""
+def aktuelles_budget():
+	aktuelles_budget = total_budget()
+	aktuelle_ausgaben = total_transactions()
+	neues_budget = aktuelles_budget - aktuelle_ausgaben
+	if neues_budget <=0:
+		print("Budget überschritten")
+	else:
+		print("kak funktion Tuet nöd")"""
+
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
