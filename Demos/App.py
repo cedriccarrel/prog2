@@ -208,16 +208,15 @@ def forgot_password():
 	data_mail=lade_daten_aus_json("user_data.json")
 	if request.method == 'POST':
 		mail_new = request.form['e_mail']
-		#user_password = request.json('password')
-		for e in data_mail:
-			if e['e_mail'].lower() == mail_new.lower():
-				for i in data_mail:
-					liste_username = (i.get('username'))
-					print(liste_username)
+		for e in data_mail: #sucht in json nach "E-Mail Adresse"
+			if e['e_mail'].lower() == mail_new.lower(): #wenn E-Mail Adresse übereinstimmt"
+				liste_username = e["username"]
+				liste_password = e["password"]
 				msg = Message(subject="Passwort vergessen",
 				sender=app.config.get("MAIL_USERNAME"),#verweis nach oben (Zeile 16)
 				recipients=[mail_new], # email welche eingegeben wurde und mit sign_up übereinstimmt
-				body="Guten Tag!" + " " + liste_username + " " + "Ihr Passwort lautet:") #+ user_password# + "!")
+				body="Guten Tag " + liste_username + "!" + " Ihr Passwort lautet: " + liste_password)
+				print(liste_username,liste_password)
 				mail.send(msg)
 		return redirect(url_for('login'))
 	return render_template("forgot_password.html")
