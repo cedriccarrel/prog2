@@ -147,16 +147,16 @@ def total_budget(budgets):
 	return sum_budget
 
 #def für Berechnung des aktuellen budgetschwellenwertes
-"""
-def aktuelles_budget():
-	aktuelles_budget = total_budget()
-	aktuelle_ausgaben = total_transactions()
+def aktuelles_budget(budgets):
+	all_budget = lade_daten_aus_json("user_data.json")
+	all_transactions = lade_daten_aus_json("ausgaben.json")
+	aktuelles_budget = total_budget(all_budget)
+	aktuelle_ausgaben = total_transactions(all_transactions)
 	neues_budget = aktuelles_budget - aktuelle_ausgaben
 	if neues_budget <=0:
-		print("Budget überschritten")
-	else:
-		print("kak funktion Tuet nöd")"""
-
+		#print("Budget überschritten")
+		#print(neues_budget)
+		return neues_budget
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -226,7 +226,7 @@ def dashboard():
 
 @app.route("/tasks") #anzeige der Ausgaben als Grafik
 def viz():
-	#load data from user_date.json
+	#load data from user_data.json
 	data_grafic = lade_daten_aus_json("ausgaben.json")
 	sum_essen = total_essen(data_grafic)
 	sum_haushalt = total_haushalt(data_grafic)
@@ -273,9 +273,11 @@ def load_newstransaction_form():
 		existing_transaction.append(newtransaction_dictionary)
 		schreibe_daten_in_json("ausgaben.json", existing_transaction)
 	
+	#Einzeln berechnete Werte, werden hier angesprochen, damit sie anschl. gerendert werden können
 	sum = total_transactions(existing_transaction)
 	sum2 = total_salary(anzeige_budget)
 	sum_budget = total_budget(anzeige_budget)
+	neues_budget = aktuelles_budget(anzeige_budget)
 	sum_essen = total_essen(existing_transaction)
 	sum_haushalt = total_haushalt(existing_transaction)
 	sum_schule = total_schule(existing_transaction)
@@ -285,7 +287,23 @@ def load_newstransaction_form():
 	sum_kommunikation = total_kommunikation(existing_transaction)
 	sum_persönlich = total_persönlich(existing_transaction)
 
-	return render_template("budget.html", data1=existing_transaction, sum=sum, sum2=sum2, sum_budget=sum_budget,
+	#Logik = wenn das Budget aufgebraucht wurde, wird ein Mail an den User versendet
+	if request.method == 'POST':
+		#mail_reminder = anzeige_budget['e_mail'] --> kommt ja nicht von form
+		for e['e_mail'] in anzeige_budget:
+			print(e)
+			if neues_budget < 0:
+				print("ja ist unter null")
+				for i in anzeige_budget:
+					liste_username = (i.get('username'))
+					print(liste_username)
+				msg = Message(subject="ALERT!",
+				sender=app.config.get("MAIL_USERNAME"),#verweis nach oben (Zeile 16)
+				recipients=[mail_reminder], # email welche eingegeben wurde und mit sign_up übereinstimmt
+				body="Guten Tag!" + " " + liste_username + " " + "Ihr Budget ist aufgebraucht und liegt aktuell bei:" + " " + neues_budget + ".")
+				mail.send(msg)
+
+	return render_template("budget.html", data1=existing_transaction, sum=sum, sum2=sum2, sum_budget=sum_budget, neues_budget=neues_budget, 
 		sum_essen=sum_essen, sum_haushalt=sum_haushalt, sum_schule=sum_schule, sum_kleider=sum_kleider, sum_sport=sum_sport, 
 		sum_freizeit=sum_freizeit, sum_kommunikation=sum_kommunikation, sum_persönlich=sum_persönlich)
 

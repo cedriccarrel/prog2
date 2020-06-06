@@ -4,13 +4,18 @@
 <head>
 	{% include "navigation.html" %}
 	<title>Budget</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/bootstrap.css">
+    <link rel="stylesheet" href="static/js/bootstrap.bundle.js">
 	<link rel="shortcut icon" href="{{ url_for('static', filename='brand.png')}}" alt="Oktofinance"/>
 
 </head>
 
 <body>
-	 <!-- Auflistung der newtransactions (Titel) -->
-	<table class="table table-striped">
+	 <!-- Auflistung der newtransactions Nur Titel, Betr -->
+	<table class="table table-striped table-hover">
 		<thead>
         Your Transactions
 		</thead>
@@ -22,35 +27,44 @@
 				{% endfor %}
 		</tbody>
 	</table>
-	<table class="table table-striped">
+	<!-- Betrag pro Transaction auslesen aus newtransactions, anschliessend zusammenrechnen¨und einzeln in Liste ausgeben -->
+	<table class="table table-striped table-hover">
+		<thead class="thead-light">
+			<tr>
+				<th scope="col">Total Ausgaben</th>
+				<th scope="col">Total Einnahmen</th>
+				<th scope="col">Total Budget</th>
+				<th scope="col">Aktuelles Budget</th>
+				<th scope="col">Total Ausgaben für Essen</th>
+				<th scope="col">Total Ausgaben für Haushalt</th>
+				<th scope="col">Total Ausgaben für Schule</th>
+				<th scope="col">Total Ausgaben für Kleider</th>
+				<th scope="col">Total Ausgaben für Sport</th>
+				<th scope="col">Total Ausgaben für Freizeit</th>
+				<th scope="col">Total Ausgaben für Kommunikation</th>
+				<th scope="col">Total Ausgaben für persönliches</th>
+    		</tr>
 		<tbody>
-			<tr>Total Ausgaben</tr>
-				<td>{{ sum }}</td>
-			<tr>Total Einnahmen</tr>
-				<td>{{ sum2 }}</td>
-			<tr>Total Budget</tr>
-				<td>{{ sum_budget }}</td>
-			<tr>Total Ausgaben für Essen</tr>
-				<td>{{ sum_essen }}</td>
-			<tr>Total Ausgaben für Haushalt</tr>
-				<td>{{ sum_haushalt }}</td>
-			<tr>Total Ausgaben für Schule</tr>
-				<td>{{ sum_schule }}</td>
-			<tr>Total Ausgaben für Kleider</tr>
-				<td>{{ sum_kleider }}</td>
-			<tr>Total Ausgaben für Sport</tr>
-				<td>{{ sum_sport }}</td>
-			<tr>Total Ausgaben für Freizeit</tr>
-				<td>{{ sum_freizeit }}</td>
-			<tr>Total Ausgaben für Kommunikation</tr>
-				<td>{{ sum_kommunikation }}</td>
-			<tr>Total Ausgaben für persönliches</tr>
-				<td>{{ sum_persönlich }}</td>
+			<tbody>
+			    <tr>
+			    	<td>{{ sum }}</td>
+			    	<td>{{ sum2 }}</td>
+					<td>{{ sum_budget }}</td>
+					<td>{{ neues_budget }}</td>
+					<td>{{ sum_essen }}</td>
+					<td>{{ sum_haushalt }}</td>
+					<td>{{ sum_schule }}</td>
+					<td>{{ sum_kleider }}</td>
+					<td>{{ sum_sport }}</td>
+					<td>{{ sum_freizeit }}</td>
+					<td>{{ sum_kommunikation }}</td>
+					<td>{{ sum_persönlich }}</td>
+			    </tr>
 		</tbody>
 	</table>
 
+	<a href="/tasks" class="btn btn-primary btn-lg btn-block" role="button">View Stats</a>
 
-<!-- Betrag pro Transaction auslesen aus newtransactions, anschliessend zusammenrechnen -->
 
 </body>
 <footer>

@@ -68,5 +68,45 @@
         "ausgabefirma": "Raiffise",
         "ausgabebeschreibung": "Test1",
         "ausgabehashtag": "sport"
+    },
+    {
+        "titel": "Test1",
+        "currency": "chf",
+        "ausgabebetrag": 10.0,
+        "ausgabedauerauftrag": "dauerauftrag",
+        "ausgabedatum": "10.05.2020",
+        "ausgabefirma": "Raiffise",
+        "ausgabebeschreibung": "Test1",
+        "ausgabehashtag": "schule"
+    },
+    {
+        "titel": "Test1",
+        "currency": "chf",
+        "ausgabebetrag": 10.0,
+        "ausgabedauerauftrag": "dauerauftrag",
+        "ausgabedatum": "10.05.2020",
+        "ausgabefirma": "Raiffise",
+        "ausgabebeschreibung": "Test1",
+        "ausgabehashtag": "schule"
+    },
+    {
+        "titel": "Test1",
+        "currency": "chf",
+        "ausgabebetrag": 10.0,
+        "ausgabedauerauftrag": "dauerauftrag",
+        "ausgabedatum": "10.05.2020",
+        "ausgabefirma": "Raiffise",
+        "ausgabebeschreibung": "Test1",
+        "ausgabehashtag": "schule"
+    },
+    {
+        "titel": "Test1",
+        "currency": "eur",
+        "ausgabebetrag": 10.0,
+        "ausgabedauerauftrag": "dauerauftrag",
+        "ausgabedatum": "10.05.2020",
+        "ausgabefirma": "Raiffise",
+        "ausgabebeschreibung": "Test1",
+        "ausgabehashtag": "freizeit"
     }
 ]
