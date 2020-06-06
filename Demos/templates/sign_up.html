@@ -10,9 +10,9 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='brand.png')}}" alt="OktoFinance"/>
     <title>Sign Up</title>
 </head>
-										 <div class="titel">
-  							<h2>Register Now!</h2>
- 						</div>
+	<div class="titel">
+  		<h2>Register Now!</h2>
+ 	</div>
 <body>
 	<div class="container h-100">
 		<div class="d-flex justify-content-center h-100">
@@ -65,6 +65,11 @@
 						<div class="d-flex justify-content-center mt-3 login_container">
 				 			<input class="btn login_btn" type="submit" action="url_for('load_sign_up_form')" value="Register">
 				   		</div>
+				   		<div>
+							{% if error2 %}
+        						<p class="error2"><strong>Caution:</strong> {{ error2 }}
+      						{% endif %}
+      					</div>	
       					</div>
 					</div>
 					</form>

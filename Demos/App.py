@@ -25,7 +25,7 @@ app.config.update(mail_settings)
 mail = Mail(app)
 
 
-#Json laden für Ausgaben, Userdata
+#json laden für Ausgaben, Userdata
 def lade_daten_aus_json (pfad, standard_wert = []):
     try:
         with open(pfad, 'r') as datei:
@@ -181,15 +181,20 @@ def load_sign_up_form():
 	existing_sign_up = lade_daten_aus_json("user_data.json")
 	if request.method == 'POST':
 		result = request.form
-
+		mail = result['e_mail']
+		for address in existing_sign_up:
+			error2 = None
+			if address['e_mail'] == mail:
+				error2 = 'Mail already exists. Please try another.'
+				return render_template("sign_up.html", error2=error2)
 		user_data_dictionary = {
 			"username": result['username'],
-	        "e_mail": result['e_mail'],
-	        "password": result['password'],
-	        "confirm_password": result['confirm_password'],
-	        "salary": float(result['salary']),
-	        "budget": float(result['budget'])
-	        }
+			"e_mail": result['e_mail'],
+			"password": result['password'],
+			"confirm_password": result['confirm_password'],
+			"salary": float(result['salary']),
+			"budget": float(result['budget'])
+			}
 		existing_sign_up.append(user_data_dictionary)
 		schreibe_daten_in_json("user_data.json", existing_sign_up)
 		sum2 = total_salary(existing_sign_up)
@@ -288,20 +293,18 @@ def load_newstransaction_form():
 	sum_persönlich = total_persönlich(existing_transaction)
 
 	#Logik = wenn das Budget aufgebraucht wurde, wird ein Mail an den User versendet
-	if request.method == 'POST':
-		#mail_reminder = anzeige_budget['e_mail'] --> kommt ja nicht von form
-		for e['e_mail'] in anzeige_budget:
-			print(e)
-			if neues_budget < 0:
-				print("ja ist unter null")
-				for i in anzeige_budget:
-					liste_username = (i.get('username'))
-					print(liste_username)
-				msg = Message(subject="ALERT!",
-				sender=app.config.get("MAIL_USERNAME"),#verweis nach oben (Zeile 16)
-				recipients=[mail_reminder], # email welche eingegeben wurde und mit sign_up übereinstimmt
-				body="Guten Tag!" + " " + liste_username + " " + "Ihr Budget ist aufgebraucht und liegt aktuell bei:" + " " + neues_budget + ".")
-				mail.send(msg)
+	for e in anzeige_budget:
+		e['e_mail'] 
+		if neues_budget < 0:
+			print("ja ist unter null")
+			for i in anzeige_budget:
+				liste_username = (i.get('username'))
+				print(liste_username)
+			msg = Message(subject="ALERT!",
+			sender=app.config.get("MAIL_USERNAME"),#verweis nach oben (Zeile 16)
+			recipients=[mail_reminder], # email welche eingegeben wurde und mit sign_up übereinstimmt
+			body="Guten Tag!" + " " + liste_username + " " + "Ihr Budget ist aufgebraucht und liegt aktuell bei:" + " " + neues_budget + ".")
+			mail.send(msg)
 
 	return render_template("budget.html", data1=existing_transaction, sum=sum, sum2=sum2, sum_budget=sum_budget, neues_budget=neues_budget, 
 		sum_essen=sum_essen, sum_haushalt=sum_haushalt, sum_schule=sum_schule, sum_kleider=sum_kleider, sum_sport=sum_sport, 
