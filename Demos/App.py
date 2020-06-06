@@ -293,18 +293,14 @@ def load_newstransaction_form():
 
 	#Logik = wenn das Budget aufgebraucht wurde, wird ein Mail an den User versendet
 	for e in anzeige_budget:
-		e['e_mail'] 
+		mail_alert = e['e_mail']
+		username_alert = e['username'] 
 		if neues_budget < 0:
-			print("ja ist unter null")
-			for i in anzeige_budget:
-				liste_username = (i.get('username'))
-				print(liste_username)
-			msg = Message(subject="ALERT!",
+			msg = Message(subject="BUDGET ALERT!",
 			sender=app.config.get("MAIL_USERNAME"),#verweis nach oben (Zeile 16)
-			recipients=[mail_reminder], # email welche eingegeben wurde und mit sign_up übereinstimmt
-			body="Guten Tag!" + " " + liste_username + " " + "Ihr Budget ist aufgebraucht und liegt aktuell bei:" + " " + neues_budget + ".")
+			recipients=[mail_alert], # email welche eingegeben wurde und mit sign_up übereinstimmt
+			body="Hallo" + " " + username_alert + " " + "Ihr definiertes Budget ist aufgebraucht. Das aktuelle Saldo liegt aktuell bei:" + " " + neues_budget + ".")
 			mail.send(msg)
-
 	return render_template("budget.html", data1=existing_transaction, sum=sum, sum2=sum2, sum_budget=sum_budget, neues_budget=neues_budget, 
 		sum_essen=sum_essen, sum_haushalt=sum_haushalt, sum_schule=sum_schule, sum_kleider=sum_kleider, sum_sport=sum_sport, 
 		sum_freizeit=sum_freizeit, sum_kommunikation=sum_kommunikation, sum_persönlich=sum_persönlich)

@@ -1,42 +1,10 @@
 [
     {
-        "username": "Simi",
-        "e_mail": "simelson@gmail.com",
-        "password": "123",
-        "confirm_password": "123",
-        "salary": 10000.0,
-        "budget": 10000.0
-    },
-    {
-        "username": "C\u00e9di",
+        "username": "C\u00e9dric",
         "e_mail": "cedi_16@hotmail.com",
-        "password": "Odoniischemaschine",
-        "confirm_password": "Odoniischemaschine",
-        "salary": 1231.0,
+        "password": "1",
+        "confirm_password": "1",
+        "salary": 100.0,
         "budget": 100.0
-    },
-    {
-        "username": "simelson",
-        "e_mail": "simeon_soli@msn.com",
-        "password": "Peterhetenlange",
-        "confirm_password": "Peterhetenlange",
-        "salary": 9393.0,
-        "budget": 400.0
-    },
-    {
-        "username": "Simi",
-        "e_mail": "simeon.solenthaler@hotmail.ch",
-        "password": "sdf",
-        "confirm_password": "sdf",
-        "salary": 333.0,
-        "budget": 200.0
-    },
-    {
-        "username": "asdf",
-        "e_mail": "asdf@fda",
-        "password": "f",
-        "confirm_password": "ss",
-        "salary": 1111.0,
-        "budget": 300.0
     }
 ]
