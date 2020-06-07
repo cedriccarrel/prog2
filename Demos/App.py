@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
 import json
-from flask_mail import Message, Mail
+from flask_mail import Message, Mail 
 import plotly #Library install via Conda --> Befehl: conda install plotly
 import matplotlib.pyplot as plt #conda install -c conda-forge matplotlib
 import plotly.graph_objects as go #somit wurde die Grafik angesprochen
@@ -20,8 +20,9 @@ mail_settings = {
     "MAIL_PASSWORD": 'Test123?'
 }
 
-app.config.update(mail_settings)
 #Instanz der Klasse Mail
+app.config.update(mail_settings)
+
 mail = Mail(app)
 
 
