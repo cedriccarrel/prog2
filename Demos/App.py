@@ -151,13 +151,15 @@ def total_budget(budgets):
 def aktuelles_budget(budgets):
 	all_budget = lade_daten_aus_json("user_data.json")
 	all_transactions = lade_daten_aus_json("ausgaben.json")
-	aktuelles_budget = float(total_budget(all_budget))
-	aktuelle_ausgaben = float(total_transactions(all_transactions))
-	neues_budget = float(aktuelles_budget) - float(aktuelle_ausgaben)
-	if float(neues_budget) <= 0.0:
-		#print("Budget überschritten")
-		#print(neues_budget)
-		return neues_budget
+	aktuelles_budget = total_budget(all_budget)
+	aktuelle_ausgaben = total_transactions(all_transactions)
+	neues_budget = aktuelles_budget - aktuelle_ausgaben
+	return neues_budget
+	#if neues_budget <= 0:
+	#	#print("Budget überschritten")
+	#	#print(neues_budget)
+	#	return neues_budget
+	
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -234,11 +236,11 @@ def dashboard():
 	aktuelles_budget = total_budget(all_budget)
 	aktuelle_ausgaben = total_transactions(all_transactions)
 	aktueller_lohn = total_salary(all_budget)
+
 	#anzeige Username im Dashboard
 	for e in all_budget: 
 		username = e['username']
-	#Berechnung Lohn und Ausgabenverhältnis in Prozent
-	lohn_verhaeltnis = aktueller_lohn - aktuelle_ausgaben
+	
 	if aktuelle_ausgaben == 0:
 		prozent_print_lohn = 0
 		count = 0
@@ -249,29 +251,31 @@ def dashboard():
 		return render_template("dashboard.html", prozent_print_lohn=prozent_print_lohn, count=count, neues_budget=neues_budget, 
 		aktuelles_budget=aktuelles_budget, prozent_print=prozent_print, username=username, prozent_print2=prozent_print2)
 	else:
-		prozent = (lohn_verhaeltnis*100)/aktuelle_ausgaben 
-	if prozent >= 0:
-		prozent_print_lohn = str(prozent) + " " + "%"
-	else:
-		prozent_print_lohn = "100%"
-	#für Berechnung Anzahl erfasster Tasks in New Transactions
-	count = 0
-	for i in all_transactions:  
-		anzahl = i['ausgabehashtag']
-		count = count + 1
-	#für prozentberechnungsanzeigen im Dashboard - Berechnung in% wie viel vom def. Budget ausgegeben wurde
-	neues_budget = aktuelles_budget - aktuelle_ausgaben
-	prozent = (neues_budget*100)/aktuelles_budget 
-	if prozent >= 0:
-		prozent_print = str(prozent) + " " + "%"
-	else:
-		prozent_print = "100%"
-	# für prozentberechnungsanzeigen im Dashboard - Berechnung in% wie viel vom def. Budget NOCH ausgegeben werden kann
-	prozent2 = (aktuelles_budget*100)/neues_budget
-	if prozent2 >= 0:
-		prozent_print2 = str(prozent2) + " " + "%"
-	else:
-		prozent_print2 = "0%"
+		#Berechnung Lohn und Ausgabenverhältnis in Prozent
+		prozent_lohn_verhaeltnis = (aktuelle_ausgaben*100)/aktueller_lohn
+		if prozent_lohn_verhaeltnis > 0:
+			prozent_print_lohn = str(prozent_lohn_verhaeltnis) + "%"
+		else:
+			prozent_print_lohn = "100%"
+		#für Berechnung Anzahl erfasster Tasks in New Transactions
+		count = 0
+		for i in all_transactions:  
+			anzahl = i['ausgabehashtag']
+			count = count + 1
+		#für prozentberechnungsanzeigen im Dashboard - Berechnung in% wie viel vom Budget ausgegeben wurde
+		prozent = (aktuelle_ausgaben*100)/aktuelles_budget 
+		if prozent >= 0:
+			prozent_print = str(prozent) + "%"
+		else:
+			prozent_print = "100%"
+		# für prozentberechnungsanzeigen im Dashboard - Berechnung in% wie viel vom def. Budget NOCH ausgegeben werden kann
+		neues_budget = aktuelles_budget - aktuelle_ausgaben
+		prozent2 = (neues_budget*100)/aktuelles_budget
+		if prozent2 >= 0:
+			prozent_print2 = str(prozent2) + "%"
+		else:
+			prozent_print2 = "0%"
+
 	return render_template("dashboard.html", prozent_print_lohn=prozent_print_lohn, count=count, neues_budget=neues_budget, 
 		aktuelles_budget=aktuelles_budget, prozent_print=prozent_print, username=username, prozent_print2=prozent_print2)
 
@@ -341,17 +345,19 @@ def load_newstransaction_form():
 	#Logik = wenn das Budget aufgebraucht wurde, wird ein Mail an den User versendet
 	for e in anzeige_budget:
 		mail_alert = e['e_mail']
-		username_alert = e['username'] 
-		if neues_budget <= 0.0:
+		username_alert = e['username']
+		if neues_budget < 0:
 			msg = Message(subject="BUDGET ALERT!",
 			sender=app.config.get("MAIL_USERNAME"),#verweis nach oben (Zeile 16)
 			recipients=[mail_alert], # email welche eingegeben wurde und mit sign_up übereinstimmt
 			body="Hallo" + " " + username_alert + " " + "Ihr definiertes Budget ist aufgebraucht. Das aktuelle Saldo liegt aktuell bei:" + " " + str(neues_budget) + ".")
 			mail.send(msg)
 		else:
-			return render_template("budget.html", data1=existing_transaction, sum=sum, sum2=sum2, sum_budget=sum_budget, neues_budget=neues_budget, 
-				sum_essen=sum_essen, sum_haushalt=sum_haushalt, sum_schule=sum_schule, sum_kleider=sum_kleider, sum_sport=sum_sport, 
-				sum_freizeit=sum_freizeit, sum_kommunikation=sum_kommunikation, sum_persönlich=sum_persönlich)
+			print("jetasdf")
+	return render_template("budget.html", data1=existing_transaction, sum=sum, sum2=sum2, sum_budget=sum_budget, neues_budget=neues_budget, 
+		sum_essen=sum_essen, sum_haushalt=sum_haushalt, sum_schule=sum_schule, sum_kleider=sum_kleider, sum_sport=sum_sport, 
+		sum_freizeit=sum_freizeit, sum_kommunikation=sum_kommunikation, sum_persönlich=sum_persönlich)
+
 
 if __name__ == "__main__":
 	app.run(debug=True, port=5000)
