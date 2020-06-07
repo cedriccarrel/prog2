@@ -20,19 +20,19 @@ Ziel des Projektes ist eine Budgetplanungs-Applikation zu bauen, mit welcher man
 5. Siehe Funktionen und Flowchart für Userjourney
 
 ## Funktionen
-# Login / Sign Up / Forgot Password
+### Login / Sign Up / Forgot Password
 Der User kreiert zuerst über die Sign Up-Funktion einen Account. Username, Passwort, E-Mail-Adresse, Budgetziel und Einkommen müssen angegeben werden. Falls die E-Mail Adresse bereits verwendet wurde, wird eine Fehlermeldung ausgegeben und die Daten werden nicht gespeichert.
 Sobald der User registriert ist, kann er sich über die Loginfunktion durch Eingabe seines Usernamen und Passwort einloggen und kann aufs Dashboard zugreifen. Falls das Passwort vergessen gegangen ist, kann man sich dieses unter /login über die Forgot your Password-Funktion, durch Eingabe der hinterlegten E-Mail-Adresse zuschicken lassen.
 
-#New Transactions
+### New Transactions
 Über die Funktion "New Transactions" kann der Nutzer Zahlungen und Ausgaben erfassen, welche direkt vom Budget abgerechnet werden.
 
-#Tasks
+### Tasks
 Unter Tasks wird einem grafisch dargestellt, wieviel man in den einzelnen Budgetposten ausgegeben hat und wieviel Prozent dies vom Gesamtbudget ausmacht.
 Weiter wird das Sparpotenzial grafisch dargestellt und dem Nutzer werden mögliche Budget-Swaps (Verschiebungen zwischen Konten und Ausgabeposten) angezeigt. 
 Dadurch ist eine Übersicht über das Budget, die getätigten Zahlungen und das aktuelle Vermögen gewährleistet.
 
-#Budget
+### Budget
 Unter Budget werden einem die bei "New Transaction" erfassten Transaktionen berechnet und als Tabelle übersichtlich aufgelistet. Über den Link "View Stats", wechselt man auf die Diagramm-Ansicht der Ausgaben.
 
 ## Flowchart Login
