@@ -222,6 +222,9 @@ def forgot_password():
 		return redirect(url_for('login'))
 	return render_template("forgot_password.html")
 
+@app.route("/settings", methods=['GET', 'POST'])
+def settings():
+	return render_template("settings.html")
 
 #doppelte URL abfrage, für Dashboard mit /, oder /dashboard
 @app.route("/", methods=['GET', 'POST'])
