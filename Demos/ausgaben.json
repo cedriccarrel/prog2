@@ -108,5 +108,15 @@
         "ausgabefirma": "Raiffise",
         "ausgabebeschreibung": "Test1",
         "ausgabehashtag": "freizeit"
+    },
+    {
+        "titel": "Posten Migi",
+        "currency": "chf",
+        "ausgabebetrag": 120.0,
+        "ausgabedauerauftrag": "einfacherauftrag",
+        "ausgabedatum": "07.6.2020",
+        "ausgabefirma": "Migros",
+        "ausgabebeschreibung": "Einkauf Essen",
+        "ausgabehashtag": "essen"
     }
 ]
