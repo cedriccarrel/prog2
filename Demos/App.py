@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, request
 import json
-from flask_mail import Message, Mail 
+from flask_mail import Message, Mail #pip install Flask-Mail
 import plotly #Library install via Conda --> Befehl: conda install plotly
 import matplotlib.pyplot as plt #conda install -c conda-forge matplotlib
 import plotly.graph_objects as go #somit wurde die Grafik angesprochen
