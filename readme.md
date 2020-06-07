@@ -26,7 +26,7 @@ Dadurch ist eine Übersicht über das Budget, die getätigten Zahlungen und das 
 ![Flowchart_Login](./Prog2_Flowchart_Login.jpg)
 
 ## Flowchart Web-App
-![Ablaufdiagramm](./Prog2_Ablaufdiagramm_V1.jpg)
+![Ablaufdiagramm](./Prog2_Ablaufdiagramm.jpg)
 
 ### Dateneingabe
 Im Sign Up (Registrierung) wird der User folgende Daten eingeben können:
