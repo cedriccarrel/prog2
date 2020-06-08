@@ -6,13 +6,5 @@
         "confirm_password": "test",
         "salary": 0.0,
         "budget": 0.0
-    },
-    {
-        "username": "Fabod",
-        "e_mail": "simelson@gmail.com",
-        "password": "1",
-        "confirm_password": "1",
-        "salary": 1000.0,
-        "budget": 500.0
     }
 ]
