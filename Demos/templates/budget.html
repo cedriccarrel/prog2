@@ -15,9 +15,11 @@
 
 <body>
 	 <!-- Auflistung der newtransactions Nur Titel, Betr -->
-	<table class="table table-striped table-hover">
+	<table class="table table-striped table-hover" style = "margin-top: 4rem">
 		<thead class="thead-light">
-			<tr>Your Transactions</tr>
+			<tr>
+				<th scope="col">Your Transactions</th>
+    		</tr>
 		</thead>
 		<tbody>
 			{% for element in data1: %}
@@ -46,7 +48,6 @@
     		</tr>
     	</thead>
 		<tbody>
-			<tbody>
 			    <tr>
 			    	<td>{{ sum }}</td>
 			    	<td>{{ sum2 }}</td>

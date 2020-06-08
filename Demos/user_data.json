@@ -1,10 +1,10 @@
 [
     {
-        "username": "C\u00e9dric",
-        "e_mail": "cedi_16@hotmail.com",
-        "password": "1",
-        "confirm_password": "1",
-        "salary": 200.0,
-        "budget": 100.0
+        "username": "Test",
+        "e_mail": "Test@testmail.com",
+        "password": "test",
+        "confirm_password": "test",
+        "salary": 0.0,
+        "budget": 0.0
     }
 ]

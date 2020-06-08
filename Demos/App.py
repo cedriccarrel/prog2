@@ -4,20 +4,20 @@ from flask_mail import Message, Mail #pip install Flask-Mail
 import plotly #Library install via Conda --> Befehl: conda install plotly
 import matplotlib.pyplot as plt #conda install -c conda-forge matplotlib
 import plotly.graph_objects as go #somit wurde die Grafik angesprochen
-from plotly.offline import plot 
+from plotly.offline import plot #somit kann Grafik als DIV gespeichert werden und gesamt gerendert werden
 
 
 app = Flask(__name__)
 
 
-#E-Mail Konfiguration
+#E-Mail Konfiguration #07.06.2020: Konto wurde gehakt / wir haben das Passwort zurückgesetzt
 mail_settings = {
     "MAIL_SERVER": 'smtp.gmail.com',
     "MAIL_PORT": 587,
     "MAIL_USE_TLS": True,
     "MAIL_USE_SSL": False,
     "MAIL_USERNAME": 'oktofinance2.0@gmail.com',
-    "MAIL_PASSWORD": 'Test123?'
+    "MAIL_PASSWORD": '!okto_finance2.0?!#'
 }
 
 #Instanz der Klasse Mail
@@ -154,12 +154,6 @@ def aktuelles_budget(budgets):
 	aktuelle_ausgaben = total_transactions(all_transactions)
 	neues_budget = aktuelles_budget - aktuelle_ausgaben
 	return neues_budget
-	#if neues_budget <= 0:
-	#	#print("Budget überschritten")
-	#	#print(neues_budget)
-	#	return neues_budget
-	
-
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -238,7 +232,7 @@ def dashboard():
 	#anzeige Username im Dashboard
 	for e in all_budget: 
 		username = e['username']
-	
+	#prüfung ob ausgaben in ausgaben.json erfasst --> wenn nicht sollen im dashboard alles 0 ausgegeben werden
 	aktuelle_ausgaben = total_transactions(all_transactions)
 	if aktuelle_ausgaben == 0:
 		prozent_print_lohn = 0
@@ -252,7 +246,7 @@ def dashboard():
 	else:
 		#Berechnung Lohn und Ausgabenverhältnis in Prozent
 		prozent_lohn_verhaeltnis = (aktuelle_ausgaben*100)/aktueller_lohn
-		if prozent_lohn_verhaeltnis > 0:
+		if prozent_lohn_verhaeltnis < 100:
 			prozent_print_lohn = str(prozent_lohn_verhaeltnis) + "%"
 		else:
 			prozent_print_lohn = "100%"
@@ -263,7 +257,7 @@ def dashboard():
 			count = count + 1
 		#für prozentberechnungsanzeigen im Dashboard - Berechnung in% wie viel vom Budget ausgegeben wurde
 		prozent = (aktuelle_ausgaben*100)/aktuelles_budget 
-		if prozent >= 0:
+		if prozent <= 100:
 			prozent_print = str(prozent) + "%"
 		else:
 			prozent_print = "100%"
@@ -341,7 +335,7 @@ def load_newstransaction_form():
 	sum_kommunikation = total_kommunikation(existing_transaction)
 	sum_persönlich = total_persönlich(existing_transaction)
 
-	#Logik = wenn das Budget aufgebraucht wurde, wird ein Mail an den User versendet
+	#Logik = wenn das Budget aufgebraucht wurde und der User die Seite /budget aufruft, wird ein Mail an den User versendet
 	for e in anzeige_budget:
 		mail_alert = e['e_mail']
 		username_alert = e['username']
@@ -352,11 +346,10 @@ def load_newstransaction_form():
 			body="Hallo" + " " + username_alert + " " + "Ihr definiertes Budget ist aufgebraucht. Das aktuelle Saldo liegt aktuell bei:" + " " + str(neues_budget) + ".")
 			mail.send(msg)
 		else:
-			print("jetasdf")
+			print("Damit die Funktion durchläuft") #ohne eingabe würde diese Funktion nicht durchlaufen
 	return render_template("budget.html", data1=existing_transaction, sum=sum, sum2=sum2, sum_budget=sum_budget, neues_budget=neues_budget, 
 		sum_essen=sum_essen, sum_haushalt=sum_haushalt, sum_schule=sum_schule, sum_kleider=sum_kleider, sum_sport=sum_sport, 
 		sum_freizeit=sum_freizeit, sum_kommunikation=sum_kommunikation, sum_persönlich=sum_persönlich)
-
 
 if __name__ == "__main__":
 	app.run(debug=True, port=5000)
