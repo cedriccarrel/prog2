@@ -25,7 +25,6 @@ app.config.update(mail_settings)
 
 mail = Mail(app)
 
-
 #json laden für Ausgaben, Userdata
 def lade_daten_aus_json (pfad, standard_wert = []):
     try:
@@ -234,13 +233,13 @@ def dashboard():
 	all_budget = lade_daten_aus_json("user_data.json")
 	all_transactions = lade_daten_aus_json("ausgaben.json")
 	aktuelles_budget = total_budget(all_budget)
-	aktuelle_ausgaben = total_transactions(all_transactions)
 	aktueller_lohn = total_salary(all_budget)
 
 	#anzeige Username im Dashboard
 	for e in all_budget: 
 		username = e['username']
 	
+	aktuelle_ausgaben = total_transactions(all_transactions)
 	if aktuelle_ausgaben == 0:
 		prozent_print_lohn = 0
 		count = 0
@@ -275,9 +274,9 @@ def dashboard():
 			prozent_print2 = str(prozent2) + "%"
 		else:
 			prozent_print2 = "0%"
-
 	return render_template("dashboard.html", prozent_print_lohn=prozent_print_lohn, count=count, neues_budget=neues_budget, 
-		aktuelles_budget=aktuelles_budget, prozent_print=prozent_print, username=username, prozent_print2=prozent_print2)
+		aktuelles_budget=aktuelles_budget, prozent_print=prozent_print, username=username, prozent_print2=prozent_print2)	
+
 
 @app.route("/tasks") #anzeige der Ausgaben als Grafik
 def viz():

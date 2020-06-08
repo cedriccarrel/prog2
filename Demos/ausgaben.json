@@ -1,17 +1,7 @@
 [
     {
-        "titel": "Geldtest",
-        "currency": "chf",
-        "ausgabebetrag": 10.0,
-        "ausgabedauerauftrag": "dauerauftrag",
-        "ausgabedatum": "10.05.2020",
-        "ausgabefirma": "Raiffise",
-        "ausgabebeschreibung": "Test1",
-        "ausgabehashtag": "essen"
-    },
-    {
-        "titel": "Geldtest",
-        "currency": "chf",
+        "titel": "Test1",
+        "currency": "eur",
         "ausgabebetrag": 10.0,
         "ausgabedauerauftrag": "dauerauftrag",
         "ausgabedatum": "10.05.2020",
