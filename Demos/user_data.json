@@ -1,9 +1,9 @@
 [
     {
         "username": "Test",
-        "e_mail": "Test@testmail.com",
-        "password": "test",
-        "confirm_password": "test",
+        "e_mail": "test@mail.com",
+        "password": "Test",
+        "confirm_password": "Test",
         "salary": 0.0,
         "budget": 0.0
     }
