@@ -16,8 +16,8 @@ mail_settings = {
     "MAIL_PORT": 587,
     "MAIL_USE_TLS": True,
     "MAIL_USE_SSL": False,
-    "MAIL_USERNAME": 'oktofinance2.0@gmail.com',
-    "MAIL_PASSWORD": '!okto_finance2.0?!#'
+    "MAIL_USERNAME": '2.0.okto.finance@gmail.com',
+    "MAIL_PASSWORD": '$,!okto_finance2.0?!#'
 }
 
 #Instanz der Klasse Mail
@@ -241,7 +241,7 @@ def dashboard():
 		aktuelles_budget = 0
 		prozent_print = 0
 		prozent_print2 = 0
-		return render_template("dashboard.html", prozent_print_lohn=prozent_print_lohn, count=count, neues_budget=neues_budget, 
+		return render_template("dashboard.html", aktuelle_ausgaben=aktuelle_ausgaben, aktueller_lohn=aktueller_lohn, prozent_print_lohn=prozent_print_lohn, count=count, neues_budget=neues_budget, 
 		aktuelles_budget=aktuelles_budget, prozent_print=prozent_print, username=username, prozent_print2=prozent_print2)
 	else:
 		#Berechnung Lohn und Ausgabenverhältnis in Prozent
@@ -268,7 +268,7 @@ def dashboard():
 			prozent_print2 = str(prozent2) + "%"
 		else:
 			prozent_print2 = "0%"
-	return render_template("dashboard.html", prozent_print_lohn=prozent_print_lohn, count=count, neues_budget=neues_budget, 
+	return render_template("dashboard.html", aktuelle_ausgaben=aktuelle_ausgaben, aktueller_lohn=aktueller_lohn, prozent_print_lohn=prozent_print_lohn, count=count, neues_budget=neues_budget, 
 		aktuelles_budget=aktuelles_budget, prozent_print=prozent_print, username=username, prozent_print2=prozent_print2)	
 
 

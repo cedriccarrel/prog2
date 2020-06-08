@@ -1,0 +1,12 @@
+[
+    {
+        "titel": "Posten Migi",
+        "currency": "chf",
+        "ausgabebetrag": 50.0,
+        "ausgabedauerauftrag": "einfacherauftrag",
+        "ausgabedatum": "7.6.2020",
+        "ausgabefirma": "Migros",
+        "ausgabebeschreibung": "Einkauf Essen",
+        "ausgabehashtag": "essen"
+    }
+]
